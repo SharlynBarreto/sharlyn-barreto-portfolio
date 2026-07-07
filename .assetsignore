@@ -1,0 +1,8 @@
+wrangler.jsonc
+.assetsignore
+.wrangler
+node_modules
+.DS_Store
+.git
+.gitignore
+.playwright-mcp

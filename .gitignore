@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Wrangler / Cloudflare local state
+.wrangler/
+
+# Node (only present if wrangler is installed locally)
+node_modules/
+
+# Playwright MCP scratch output
+.playwright-mcp/
