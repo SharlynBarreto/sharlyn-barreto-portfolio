@@ -1,9 +1,8 @@
 /* Sharlyn Barreto — portfolio interactions
-   Hero: a real-time golden-hour meadow painted on <canvas> — layered hills,
-   drifting lit clouds, sun glow, fireflies that drift toward the cursor, and
-   hundreds of grass blades + wildflowers that sway in wind and bend away from
-   the mouse. Below: scroll-linked scrubbed reveals and kinetic headlines.
-   No dependencies. */
+   Hero: a real-time sunset over the ocean painted on <canvas> — layered
+   sunset sky, glowing sun, moving swells, a shimmering glitter path of
+   sunlight on the water, and ripples that follow the cursor. Below: the
+   scroll-linked scrubbed reveals and kinetic headlines. No dependencies. */
 
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,92 +49,70 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ==========================================================================
-     GOLDEN-HOUR MEADOW (canvas)
+     SUNSET OVER THE OCEAN (canvas)
      ========================================================================== */
   const hero = document.getElementById("hero");
   const canvas = document.getElementById("heroCanvas");
   const ctx = canvas.getContext("2d");
 
-  const mouse = { x: -9999, y: -9999, vx: 0, inside: false };
-  let lastMX = null;
+  const mouse = { x: -9999, y: -9999, inside: false };
+  const ripples = [];
+  let lastRipple = 0;
+
+  let W = 0, H = 0, HORIZON = 0;
+  let waves = [], glitter = [], clouds = [];
+
   window.addEventListener("mousemove", (e) => {
     const r = canvas.getBoundingClientRect();
     mouse.x = e.clientX - r.left;
     mouse.y = e.clientY - r.top;
     mouse.inside = mouse.y > 0 && mouse.y < r.height;
-    mouse.vx = lastMX === null ? 0 : e.clientX - lastMX;
-    lastMX = e.clientX;
+    /* cursor touching the sea leaves ripples */
+    const now = performance.now();
+    if (mouse.inside && mouse.y > HORIZON && now - lastRipple > 80 && ripples.length < 36) {
+      ripples.push({ x: mouse.x, y: mouse.y, r: 3, a: 0.4 });
+      lastRipple = now;
+    }
   }, { passive: true });
-
-  let W = 0, H = 0;
-  let hills = [], blades = [], flowers = [], flies = [], clouds = [];
-
-  const GRASS_COLORS = ["#5E7048", "#6C7C5D", "#77895C", "#4F5D47", "#556647"];
-  const PETALS = ["#C2603E", "#C97B8E", "#9187B0", "#D8B266", "#D98A62", "#E58FA8"];
-
-  /* smooth rolling silhouette: base height + two sine octaves */
-  const makeHill = (base, a1, f1, p1, a2, f2, p2, top, bottom, depth, rim) => ({
-    y: (x) => H * (base + a1 * Math.sin(x * f1 + p1) + a2 * Math.sin(x * f2 + p2)),
-    top, bottom, depth, rim,
-  });
 
   const buildScene = () => {
     W = hero.clientWidth;
     H = hero.clientHeight;
+    HORIZON = H * 0.6;
     const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    hills = [
-      makeHill(0.60, 0.022, 0.0016, 1.1, 0.012, 0.0042, 4.0, "#A995AC", "#8E86A0", 0.08, null),
-      makeHill(0.685, 0.026, 0.0013, 3.9, 0.013, 0.0038, 0.7, "#7E8F6C", "#66785A", 0.16, "rgba(242,200,137,0.5)"),
-      makeHill(0.80, 0.024, 0.0011, 5.6, 0.012, 0.0035, 2.3, "#5C6D4B", "#42513B", 0.28, "rgba(242,200,137,0.35)"),
-    ];
-    const nearY = hills[2].y;
-
-    blades = [];
-    const count = Math.max(140, Math.min(340, Math.round(W / 4.2)));
-    for (let i = 0; i < count; i++) {
-      const x = Math.random() * (W + 40) - 20;
-      const surface = nearY(x);
-      const rootY = surface + 8 + Math.random() * (H - surface - 4) * 0.9;
-      const deepness = (rootY - surface) / Math.max(1, H - surface); // 0 crest → 1 bottom
-      blades.push({
-        x, rootY,
-        len: (26 + Math.random() * 34) * (0.75 + deepness * 0.7),
-        w: 1.6 + Math.random() * 1.7,
-        color: Math.random() < 0.12 ? "#C9A45C" : GRASS_COLORS[(Math.random() * GRASS_COLORS.length) | 0],
+    /* swell rows, spaced with perspective (dense at horizon, wide up close) */
+    waves = [];
+    const rows = 26;
+    for (let i = 0; i < rows; i++) {
+      const f = i / (rows - 1); // 0 horizon → 1 shore
+      waves.push({
+        y: HORIZON + 6 + Math.pow(f, 1.6) * (H - HORIZON - 10),
+        f,
+        amp: 1.2 + f * 7,
+        len: 110 + f * 220 + Math.random() * 40,
+        speed: (0.018 + f * 0.05) * (i % 2 ? 1 : -1),
         phase: Math.random() * Math.PI * 2,
-        bend: 0,
-      });
-    }
-    blades.sort((a, b) => a.rootY - b.rootY); // paint back-to-front
-
-    flowers = [];
-    const fCount = Math.max(10, Math.min(26, Math.round(W / 60)));
-    for (let i = 0; i < fCount; i++) {
-      const x = 20 + Math.random() * (W - 40);
-      const surface = nearY(x);
-      const rootY = surface + 14 + Math.random() * (H - surface - 10) * 0.8;
-      flowers.push({
-        x, rootY,
-        len: 46 + Math.random() * 42,
-        r: 3.2 + Math.random() * 2.4,
-        color: PETALS[(Math.random() * PETALS.length) | 0],
-        phase: Math.random() * Math.PI * 2,
-        bend: 0,
+        light: i % 3 === 0, // every third row catches the sun
       });
     }
 
-    flies = [];
-    for (let i = 0; i < 36; i++) {
-      flies.push({
-        x: Math.random() * W,
-        y: H * 0.45 + Math.random() * H * 0.5,
-        r: 5 + Math.random() * 4,
-        p1: Math.random() * Math.PI * 2,
-        p2: Math.random() * Math.PI * 2,
+    /* the glitter path — precomputed dashes that shimmer under the sun */
+    glitter = [];
+    const dashes = Math.max(60, Math.min(130, Math.round(W / 11)));
+    for (let i = 0; i < dashes; i++) {
+      const fy = Math.pow(Math.random(), 1.4); // denser near the horizon
+      glitter.push({
+        fy,
+        gxNorm: (Math.random() * 2 - 1) * (0.35 + fy),
+        len: 3 + fy * 26,
+        h: 1.2 + fy * 2.6,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.002 + Math.random() * 0.004,
+        baseA: 0.25 + Math.random() * 0.5,
       });
     }
 
@@ -146,66 +123,55 @@
       for (let j = 0; j < n; j++) {
         puffs.push({
           dx: (j - n / 2) * (26 + Math.random() * 22),
-          dy: (Math.random() - 0.5) * 16,
-          r: 26 + Math.random() * 30,
+          dy: (Math.random() - 0.5) * 14,
+          r: 24 + Math.random() * 30,
         });
       }
       clouds.push({
         x: Math.random() * W,
-        y: H * (0.08 + Math.random() * 0.24),
+        y: H * (0.06 + Math.random() * 0.22),
         speed: (0.004 + Math.random() * 0.014) * (Math.random() < 0.5 ? 1 : -1),
         puffs,
       });
     }
   };
 
-  const wind = (x, t) =>
-    0.28 * Math.sin(t * 0.0009 + x * 0.004) +
-    0.16 * Math.sin(t * 0.0016 + x * 0.012) +
-    0.30 * Math.pow(Math.sin(t * 0.00023), 3);
-
-  /* cursor pushes vegetation aside as it sweeps the field */
-  const cursorPush = (x, rootY) => {
-    if (!mouse.inside || mouse.y < H * 0.45) return 0;
-    const dx = x - mouse.x;
-    const d = Math.abs(dx);
-    if (d > 150 || Math.abs(rootY - mouse.y) > 220) return 0;
-    const s = 1 - d / 150;
-    return Math.sign(dx || 1) * s * s * (0.5 + Math.min(1.3, Math.abs(mouse.vx) * 0.05));
-  };
-
   const drawScene = (t, scrollY, mx, my) => {
-    /* sky */
-    const sky = ctx.createLinearGradient(0, 0, 0, H);
-    sky.addColorStop(0, "#6E6390");
-    sky.addColorStop(0.34, "#9A7D9C");
-    sky.addColorStop(0.58, "#CE9187");
-    sky.addColorStop(0.78, "#E8AF7E");
-    sky.addColorStop(1, "#F2CE8B");
+    /* --- sunset sky --- */
+    const sky = ctx.createLinearGradient(0, 0, 0, HORIZON);
+    sky.addColorStop(0, "#7E2B1A");
+    sky.addColorStop(0.42, "#BF4E28");
+    sky.addColorStop(0.72, "#EE8A3E");
+    sky.addColorStop(1, "#FBC468");
     ctx.fillStyle = sky;
-    ctx.fillRect(0, 0, W, H);
+    ctx.fillRect(0, 0, W, HORIZON + 1);
 
-    /* sun + halo */
-    const sx = W * 0.73 + mx * -14;
-    const sy = H * 0.32 + scrollY * 0.12 + my * -8;
+    /* --- sun low over the water --- */
+    const sx = W * 0.77 + mx * -14;
+    const sy = HORIZON - H * 0.075 + scrollY * 0.06 + my * -6;
     const breathe = 0.9 + 0.1 * Math.sin(t * 0.0007);
     ctx.globalCompositeOperation = "lighter";
-    let g = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * 0.55);
-    g.addColorStop(0, `rgba(247,201,137,${0.5 * breathe})`);
-    g.addColorStop(1, "rgba(247,201,137,0)");
+    let g = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * 0.4);
+    g.addColorStop(0, `rgba(255,180,90,${0.5 * breathe})`);
+    g.addColorStop(1, "rgba(255,180,90,0)");
     ctx.fillStyle = g;
-    ctx.fillRect(0, 0, W, H);
-    g = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * 0.09);
-    g.addColorStop(0, "#FFF0C8");
-    g.addColorStop(0.55, "#FFE3A3");
-    g.addColorStop(1, "rgba(255,227,163,0)");
+    ctx.fillRect(0, 0, W, HORIZON + 1);
+    ctx.globalCompositeOperation = "source-over";
+    /* slightly flattened disc, the way a setting sun looks */
+    g = ctx.createRadialGradient(sx, sy, 0, sx, sy, H * 0.055);
+    g.addColorStop(0, "#FFF6D6");
+    g.addColorStop(0.6, "#FFDF96");
+    g.addColorStop(1, "rgba(255,223,150,0)");
+    ctx.save();
+    ctx.translate(sx, sy);
+    ctx.scale(1, 0.94);
     ctx.fillStyle = g;
     ctx.beginPath();
-    ctx.arc(sx, sy, H * 0.09, 0, Math.PI * 2);
+    ctx.arc(0, 0, H * 0.055, 0, Math.PI * 2);
     ctx.fill();
-    ctx.globalCompositeOperation = "source-over";
+    ctx.restore();
 
-    /* clouds, lit by the sun on their near side */
+    /* --- clouds, lit from the sun side --- */
     clouds.forEach((c) => {
       c.x += c.speed * 16;
       if (c.x > W + 160) c.x = -160;
@@ -215,8 +181,8 @@
         const py = c.y + p.dy + my * -6;
         const sunNear = Math.max(0, 1 - Math.hypot(px - sx, py - sy) / (W * 0.55));
         const cg = ctx.createRadialGradient(px, py, 0, px, py, p.r);
-        cg.addColorStop(0, `rgba(${252 - sunNear * 6},${238 - sunNear * 30},${232 - sunNear * 60},0.5)`);
-        cg.addColorStop(1, "rgba(252,238,232,0)");
+        cg.addColorStop(0, `rgba(${250 - sunNear * 4},${222 - sunNear * 50},${188 - sunNear * 95},0.45)`);
+        cg.addColorStop(1, "rgba(250,222,188,0)");
         ctx.fillStyle = cg;
         ctx.beginPath();
         ctx.arc(px, py, p.r, 0, Math.PI * 2);
@@ -224,124 +190,13 @@
       });
     });
 
-    /* hills with atmospheric depth (+ mist band between far and mid) */
-    hills.forEach((hill, idx) => {
-      const offY = scrollY * hill.depth + my * hill.depth * -30;
-      const offX = mx * hill.depth * -46;
-      ctx.beginPath();
-      ctx.moveTo(-60, H + 60);
-      for (let x = -60; x <= W + 60; x += 14) {
-        ctx.lineTo(x + offX, hill.y(x) + offY);
-      }
-      ctx.lineTo(W + 60, H + 60);
-      ctx.closePath();
-      const hg = ctx.createLinearGradient(0, H * 0.45, 0, H);
-      hg.addColorStop(0, hill.top);
-      hg.addColorStop(1, hill.bottom);
-      ctx.fillStyle = hg;
-      ctx.fill();
-      if (hill.rim) { /* dusk light catching the ridge */
-        ctx.strokeStyle = hill.rim;
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        for (let x = -60; x <= W + 60; x += 14) {
-          const y = hill.y(x) + offY;
-          x === -60 ? ctx.moveTo(x + offX, y) : ctx.lineTo(x + offX, y);
-        }
-        ctx.stroke();
-      }
-      if (idx === 0) {
-        const mist = ctx.createLinearGradient(0, H * 0.55, 0, H * 0.72);
-        mist.addColorStop(0, "rgba(244,228,222,0)");
-        mist.addColorStop(0.5, "rgba(244,228,222,0.4)");
-        mist.addColorStop(1, "rgba(244,228,222,0)");
-        ctx.fillStyle = mist;
-        ctx.fillRect(0, H * 0.5, W, H * 0.3);
-      }
-    });
-
-    /* warm wash from the sun over the land */
-    ctx.globalCompositeOperation = "lighter";
-    g = ctx.createRadialGradient(sx, sy, 0, sx, sy, W * 0.75);
-    g.addColorStop(0, "rgba(242,190,120,0.08)");
-    g.addColorStop(1, "rgba(242,190,120,0)");
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, W, H);
-    ctx.globalCompositeOperation = "source-over";
-
-    /* grass — each blade springs toward wind + cursor push */
-    ctx.lineCap = "round";
-    blades.forEach((b) => {
-      const target = wind(b.x, t + b.phase * 900) + cursorPush(b.x, b.rootY);
-      b.bend += (target - b.bend) * 0.085;
-      const sway = b.bend * b.len * 0.45;
-      ctx.strokeStyle = b.color;
-      ctx.lineWidth = b.w;
-      ctx.beginPath();
-      ctx.moveTo(b.x, b.rootY);
-      ctx.quadraticCurveTo(b.x + sway * 0.35, b.rootY - b.len * 0.6, b.x + sway, b.rootY - b.len);
-      ctx.stroke();
-    });
-
-    /* wildflowers */
-    flowers.forEach((f) => {
-      const target = wind(f.x, t + f.phase * 900) + cursorPush(f.x, f.rootY);
-      f.bend += (target - f.bend) * 0.07;
-      const sway = f.bend * f.len * 0.4;
-      const tipX = f.x + sway, tipY = f.rootY - f.len;
-      ctx.strokeStyle = "#4F5D47";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(f.x, f.rootY);
-      ctx.quadraticCurveTo(f.x + sway * 0.35, f.rootY - f.len * 0.6, tipX, tipY);
-      ctx.stroke();
-      ctx.fillStyle = f.color;
-      for (let k = 0; k < 5; k++) {
-        const a = (k / 5) * Math.PI * 2 + f.phase;
-        ctx.beginPath();
-        ctx.arc(tipX + Math.cos(a) * f.r, tipY + Math.sin(a) * f.r, f.r * 0.72, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.fillStyle = "#E8C777";
-      ctx.beginPath();
-      ctx.arc(tipX, tipY, f.r * 0.5, 0, Math.PI * 2);
-      ctx.fill();
-    });
-
-    /* fireflies, gently drawn toward the cursor */
-    ctx.globalCompositeOperation = "lighter";
-    flies.forEach((fl) => {
-      fl.x += 0.42 * Math.sin(t * 0.0006 + fl.p1);
-      fl.y += 0.34 * Math.cos(t * 0.0005 + fl.p2);
-      if (mouse.inside) {
-        const dx = mouse.x - fl.x, dy = mouse.y - fl.y;
-        const d = Math.hypot(dx, dy);
-        if (d < 280 && d > 24) { fl.x += (dx / d) * 0.5; fl.y += (dy / d) * 0.5; }
-      }
-      if (fl.x < -20) fl.x = W + 20; if (fl.x > W + 20) fl.x = -20;
-      if (fl.y < H * 0.3) fl.y = H * 0.3; if (fl.y > H + 10) fl.y = H * 0.55;
-      const a = 0.35 + 0.4 * (0.5 + 0.5 * Math.sin(t * 0.003 + fl.p1 * 3));
-      const fg = ctx.createRadialGradient(fl.x, fl.y, 0, fl.x, fl.y, fl.r);
-      fg.addColorStop(0, `rgba(255,214,140,${a})`);
-      fg.addColorStop(1, "rgba(255,214,140,0)");
-      ctx.fillStyle = fg;
-      ctx.beginPath();
-      ctx.arc(fl.x, fl.y, fl.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = `rgba(255,243,206,${Math.min(1, a + 0.25)})`;
-      ctx.beginPath();
-      ctx.arc(fl.x, fl.y, 1.4, 0, Math.PI * 2);
-      ctx.fill();
-    });
-    ctx.globalCompositeOperation = "source-over";
-
-    /* a small flock crossing the sky */
-    ctx.strokeStyle = "rgba(66,58,84,0.8)";
+    /* --- a small flock crossing the sky --- */
+    ctx.strokeStyle = "rgba(72,48,34,0.85)";
     ctx.lineWidth = 2;
     for (let i = 0; i < 5; i++) {
       const p = ((t * 0.000022 + i * 0.035) % 1.25) - 0.12;
       const bx = p * W * 1.2;
-      const by = H * (0.16 + 0.03 * i % 2) + H * 0.03 * Math.sin(p * 7 + i * 2);
+      const by = H * (0.14 + 0.03 * (i % 2)) + H * 0.03 * Math.sin(p * 7 + i * 2);
       const flap = 3 + 3.5 * Math.sin(t * 0.012 + i * 1.7);
       const span = 9 + (i % 3) * 2;
       ctx.beginPath();
@@ -351,10 +206,85 @@
       ctx.stroke();
     }
 
+    /* --- the ocean --- */
+    const sea = ctx.createLinearGradient(0, HORIZON, 0, H);
+    sea.addColorStop(0, "#F2A85C");
+    sea.addColorStop(0.2, "#CE7D48");
+    sea.addColorStop(0.48, "#8A6650");
+    sea.addColorStop(0.78, "#4A5052");
+    sea.addColorStop(1, "#33454B");
+    ctx.fillStyle = sea;
+    ctx.fillRect(0, HORIZON, W, H - HORIZON);
+
+    /* sunlit horizon edge */
+    ctx.strokeStyle = "rgba(255,220,150,0.55)";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(0, HORIZON);
+    ctx.lineTo(W, HORIZON);
+    ctx.stroke();
+
+    /* broad reflection column under the sun */
+    ctx.globalCompositeOperation = "lighter";
+    const col = ctx.createLinearGradient(0, HORIZON, 0, H);
+    col.addColorStop(0, "rgba(255,185,95,0.32)");
+    col.addColorStop(1, "rgba(255,185,95,0.04)");
+    ctx.fillStyle = col;
+    ctx.beginPath();
+    ctx.moveTo(sx - 22, HORIZON);
+    ctx.lineTo(sx + 22, HORIZON);
+    ctx.lineTo(sx + 95, H);
+    ctx.lineTo(sx - 95, H);
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+
+    /* moving swells — dark rows for depth, light rows catching the sun */
+    waves.forEach((wv) => {
+      const swell = 2.5 * Math.sin(t * 0.0004 + wv.y * 0.05);
+      ctx.strokeStyle = wv.light
+        ? `rgba(255,205,130,${0.14 + wv.f * 0.1})`
+        : `rgba(30,48,52,${0.16 + wv.f * 0.16})`;
+      ctx.lineWidth = wv.light ? 1 + wv.f * 1.6 : 1.4 + wv.f * 2.2;
+      ctx.beginPath();
+      for (let x = -20; x <= W + 20; x += 12) {
+        const y = wv.y + swell + wv.amp * Math.sin(((x + t * wv.speed * 60) / wv.len) * Math.PI * 2 + wv.phase)
+          + my * wv.f * -10;
+        x === -20 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
+
+    /* the glitter path — dashes of sunlight shimmering on the water */
+    ctx.globalCompositeOperation = "lighter";
+    glitter.forEach((d) => {
+      const gy = HORIZON + 4 + d.fy * (H - HORIZON - 8);
+      const colHalf = 16 + (gy - HORIZON) * 0.42;
+      const gx = sx + d.gxNorm * colHalf;
+      const a = d.baseA * Math.max(0, Math.sin(t * d.speed * 1000 * 0.003 + d.phase));
+      if (a < 0.03) return;
+      ctx.fillStyle = `rgba(255,231,170,${a})`;
+      ctx.fillRect(gx - d.len / 2, gy - d.h / 2, d.len, d.h);
+    });
+
+    /* cursor ripples on the sea */
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const rp = ripples[i];
+      rp.r += 2.1;
+      rp.a *= 0.94;
+      if (rp.a < 0.02) { ripples.splice(i, 1); continue; }
+      ctx.strokeStyle = `rgba(255,225,170,${rp.a})`;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.ellipse(rp.x, rp.y, rp.r, rp.r * 0.32, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    ctx.globalCompositeOperation = "source-over";
+
     /* vignette for depth */
     const v = ctx.createRadialGradient(W * 0.5, H * 0.42, Math.min(W, H) * 0.42, W * 0.5, H * 0.5, Math.max(W, H) * 0.78);
-    v.addColorStop(0, "rgba(46,34,60,0)");
-    v.addColorStop(1, "rgba(46,34,60,0.22)");
+    v.addColorStop(0, "rgba(58,26,14,0)");
+    v.addColorStop(1, "rgba(58,26,14,0.26)");
     ctx.fillStyle = v;
     ctx.fillRect(0, 0, W, H);
   };

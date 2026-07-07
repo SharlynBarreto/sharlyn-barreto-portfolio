@@ -109,12 +109,12 @@ h1 em, h2 em, .contact-headline em {
 }
 .btn:hover { transform: translateY(-2px); }
 .btn-solid {
-  background: linear-gradient(120deg, var(--terra-600), var(--rose-500) 115%);
+  background: linear-gradient(120deg, var(--terra-600), var(--coral-500) 115%);
   color: var(--cream-50);
   box-shadow: 0 10px 28px -12px rgba(169, 79, 49, 0.65);
 }
 .btn-solid:hover {
-  background: linear-gradient(120deg, var(--terra-500), var(--rose-500) 100%);
+  background: linear-gradient(120deg, var(--terra-500), var(--coral-500) 100%);
   box-shadow: 0 16px 34px -12px rgba(169, 79, 49, 0.65);
 }
 .btn-outline {
@@ -397,30 +397,27 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- hero content over the golden-hour canvas ---------- */
 .hero-content .kicker {
-  color: #F6E3C1;
-  text-shadow: 0 1px 18px rgba(58, 44, 72, 0.45);
+  color: #FBE8BF;
+  text-shadow: 0 1px 18px rgba(88, 34, 12, 0.5);
 }
 .hero-name .word {
   color: var(--cream-50);
-  text-shadow: 0 2px 34px rgba(58, 44, 72, 0.4);
+  text-shadow: 0 2px 34px rgba(88, 34, 12, 0.45);
 }
 .hero-name .line-2 .word em {
   font-style: italic;
-  background: linear-gradient(96deg, #F2C879 8%, #EFA98E 52%, #E58FA8 95%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #F2C879; /* fallback */
+  color: #123F4A; /* deep sea teal — reads clearly against the sunset */
+  text-shadow: 0 2px 30px rgba(255, 214, 140, 0.4);
 }
-.hero-name .dot { color: #FFAD85; }
+.hero-name .dot { color: #FFC24D; }
 .hero-sub {
-  color: rgba(251, 249, 242, 0.9);
-  text-shadow: 0 1px 16px rgba(58, 44, 72, 0.4);
+  color: rgba(251, 249, 242, 0.92);
+  text-shadow: 0 1px 16px rgba(88, 34, 12, 0.45);
 }
 .hero .btn-outline {
   border-color: rgba(251, 249, 242, 0.6);
   color: var(--cream-50);
-  background: rgba(58, 44, 72, 0.12);
+  background: rgba(88, 34, 12, 0.14);
 }
 .hero .btn-outline:hover { border-color: var(--cream-50); background: rgba(251, 249, 242, 0.16); }
 .hero-social a { color: rgba(251, 249, 242, 0.85); }
