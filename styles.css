@@ -271,12 +271,25 @@ body.menu-open { overflow: hidden; }
   justify-content: center;
   overflow: hidden;
 }
-.hero-canvas {
+.hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
+  background: #0B1D26; /* deep night teal until the poster/first frame paints */
+  transform: scale(1.06); /* overscan so cursor/scroll drift never shows an edge */
+  will-change: transform;
+}
+/* legibility scrim: darken behind the nav, the centered type, and the ticker */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(rgba(5, 16, 24, 0.45), rgba(5, 16, 24, 0) 26%),
+    radial-gradient(ellipse 70% 52% at 50% 44%, rgba(4, 13, 20, 0.42), rgba(4, 13, 20, 0) 100%),
+    linear-gradient(rgba(5, 16, 24, 0) 68%, rgba(5, 16, 24, 0.55));
 }
 
 .hero-content {
@@ -395,29 +408,29 @@ body.menu-open { overflow: hidden; }
 .hero-name .dot { color: var(--terra-500); font-style: normal; }
 @keyframes word-rise { to { transform: translateY(0); } }
 
-/* ---------- hero content over the golden-hour canvas ---------- */
+/* ---------- hero content over the aurora night sky ---------- */
 .hero-content .kicker {
-  color: #FBE8BF;
-  text-shadow: 0 1px 18px rgba(88, 34, 12, 0.5);
+  color: #C9E9DA;
+  text-shadow: 0 1px 18px rgba(4, 14, 22, 0.6);
 }
 .hero-name .word {
   color: var(--cream-50);
-  text-shadow: 0 2px 34px rgba(88, 34, 12, 0.45);
+  text-shadow: 0 2px 34px rgba(4, 14, 22, 0.55);
 }
 .hero-name .line-2 .word em {
   font-style: italic;
-  color: #123F4A; /* deep sea teal — reads clearly against the sunset */
-  text-shadow: 0 2px 30px rgba(255, 214, 140, 0.4);
+  color: #EDCB82; /* warm gold — glows against the teal night sky */
+  text-shadow: 0 2px 30px rgba(8, 20, 28, 0.5);
 }
 .hero-name .dot { color: #FFC24D; }
 .hero-sub {
   color: rgba(251, 249, 242, 0.92);
-  text-shadow: 0 1px 16px rgba(88, 34, 12, 0.45);
+  text-shadow: 0 1px 16px rgba(4, 14, 22, 0.55);
 }
 .hero .btn-outline {
   border-color: rgba(251, 249, 242, 0.6);
   color: var(--cream-50);
-  background: rgba(88, 34, 12, 0.14);
+  background: rgba(5, 18, 26, 0.24);
 }
 .hero .btn-outline:hover { border-color: var(--cream-50); background: rgba(251, 249, 242, 0.16); }
 .hero-social a { color: rgba(251, 249, 242, 0.85); }
@@ -442,7 +455,7 @@ body.menu-open .menu-toggle span { background: var(--ink) !important; }
   overflow: hidden;
   padding: 14px 0;
   border-top: 1px solid rgba(251, 249, 242, 0.22);
-  background: rgba(71, 84, 61, 0.28);
+  background: rgba(7, 22, 30, 0.38);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
@@ -815,8 +828,8 @@ h2 .wi { display: inline-block; will-change: transform; }
 .footer-art svg { display: block; width: 100%; height: auto; }
 
 .site-footer {
-  background: var(--sage-800);
-  color: var(--sage-200);
+  background: #1C2440;
+  color: #C9C3DD;
   text-align: center;
   font-size: 0.84rem;
   padding: 22px 20px 28px;

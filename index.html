@@ -8,7 +8,7 @@
   <meta property="og:title" content="Sharlyn Barreto — Software Engineer">
   <meta property="og:description" content="Software engineer in New York building products end to end.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F7F3E8'/%3E%3Ccircle cx='40' cy='24' r='9' fill='%23C99C4E'/%3E%3Cpath d='M0 44 Q16 34 32 42 T64 40 L64 64 L0 64 Z' fill='%236C7C5D'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101C36'/%3E%3Ccircle cx='14' cy='14' r='1.5' fill='%23EDE9F7'/%3E%3Ccircle cx='26' cy='8' r='1.2' fill='%23EDE9F7'/%3E%3Ccircle cx='56' cy='20' r='1.3' fill='%23EDE9F7'/%3E%3Ccircle cx='40' cy='24' r='9' fill='%23E8C777'/%3E%3Cpath d='M0 40 Q16 30 32 38 T64 36 L64 64 L0 64 Z' fill='%23A9AECF'/%3E%3Cpath d='M0 50 Q20 42 40 48 T64 46 L64 64 L0 64 Z' fill='%232E3A5C'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,400;0,9..144,500;1,9..144,340;1,9..144,400&display=swap" rel="stylesheet">
@@ -54,7 +54,11 @@
 
     <!-- ============================== HERO ============================== -->
     <section class="hero" id="hero">
-      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <!-- src is assigned by main.js so the right rendition loads per viewport
+           (and nothing loads under prefers-reduced-motion — the poster stays) -->
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none"
+             poster="assets/hero-aurora-poster.jpg" aria-hidden="true"></video>
+      <div class="hero-scrim" aria-hidden="true"></div>
 
       <div class="hero-content" data-fade>
         <p class="kicker reveal-load">Software Engineer · New York</p>
@@ -107,7 +111,7 @@
               <img src="assets/sharlyn.jpeg" alt="Sharlyn seated on a grand staircase" loading="lazy">
             </figure>
             <svg class="photo-blob" viewBox="0 0 400 400" aria-hidden="true">
-              <path fill="#DCE3D2" d="M200,40 C280,30 360,90 366,180 C372,272 300,352 208,362 C118,372 40,306 34,214 C28,124 118,50 200,40 Z"/>
+              <path fill="#D9DDEF" d="M200,40 C280,30 360,90 366,180 C372,272 300,352 208,362 C118,372 40,306 34,214 C28,124 118,50 200,40 Z"/>
             </svg>
           </div>
           <div class="about-text">
@@ -188,38 +192,87 @@
         <!-- Featured: Augenta plugin -->
         <article class="feature reveal">
           <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted cover art for the Augenta memory plugin — golden memory motes rising from a field into a constellation">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for the Augenta memory plugin — a glowing brain of shared memory with teams across the organization connected to it like a constellation">
               <defs>
                 <linearGradient id="augSky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#E6E2EC"/><stop offset="0.7" stop-color="#F1DDD3"/><stop offset="1" stop-color="#F0D3AC"/>
+                  <stop offset="0" stop-color="#101C36"/><stop offset="1" stop-color="#35305C"/>
                 </linearGradient>
+                <radialGradient id="augGlow" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0" stop-color="#E8C777" stop-opacity="0.32"/><stop offset="1" stop-color="#E8C777" stop-opacity="0"/>
+                </radialGradient>
               </defs>
               <rect width="640" height="400" fill="url(#augSky)"/>
-              <!-- memory constellation -->
-              <g stroke="#C99C4E" stroke-width="1.6" opacity="0.65">
-                <line x1="430" y1="120" x2="500" y2="88"/>
-                <line x1="500" y1="88" x2="556" y2="132"/>
-                <line x1="430" y1="120" x2="470" y2="180"/>
-                <line x1="470" y1="180" x2="556" y2="132"/>
-                <line x1="352" y1="156" x2="430" y2="120"/>
+              <!-- stars -->
+              <g fill="#EDE9F7">
+                <circle cx="66" cy="56" r="1.5" opacity="0.8"/><circle cx="216" cy="42" r="1.3" opacity="0.6"/>
+                <circle cx="418" cy="48" r="1.6" opacity="0.85"/><circle cx="588" cy="60" r="1.4" opacity="0.7"/>
+                <circle cx="612" cy="160" r="1.3" opacity="0.55"/><circle cx="52" cy="180" r="1.4" opacity="0.6"/>
+                <circle cx="238" cy="86" r="1.3" opacity="0.5"/><circle cx="560" cy="300" r="1.4" opacity="0.5"/>
               </g>
-              <g fill="#C99C4E">
-                <circle cx="430" cy="120" r="7"/>
-                <circle cx="500" cy="88" r="5"/>
-                <circle cx="556" cy="132" r="6"/>
-                <circle cx="470" cy="180" r="5"/>
-                <circle cx="352" cy="156" r="4"/>
+              <!-- warm halo around the shared memory -->
+              <circle cx="320" cy="175" r="108" fill="url(#augGlow)"/>
+              <!-- team connections into the brain, memory motes travelling the lines -->
+              <g stroke="#C9C3DD" stroke-width="1.6" opacity="0.5">
+                <line x1="145" y1="172" x2="266" y2="182"/>
+                <line x1="485" y1="105" x2="370" y2="148"/>
+                <line x1="520" y1="235" x2="376" y2="190"/>
+                <line x1="135" y1="250" x2="268" y2="196"/>
               </g>
-              <!-- motes rising from the field -->
               <g fill="#D8B266">
-                <circle cx="300" cy="230" r="3" opacity="0.9"/>
+                <circle cx="205" cy="177" r="2.2" opacity="0.8"/>
+                <circle cx="430" cy="127" r="2.2" opacity="0.7"/>
+                <circle cx="452" cy="214" r="2.2" opacity="0.8"/>
+                <circle cx="205" cy="222" r="2.2" opacity="0.7"/>
+              </g>
+              <!-- teams: a hub per team, teammates orbiting it -->
+              <g stroke="#C9C3DD" stroke-width="1.2" opacity="0.4">
+                <line x1="145" y1="172" x2="112" y2="148"/><line x1="145" y1="172" x2="108" y2="200"/>
+                <line x1="485" y1="105" x2="516" y2="72"/><line x1="485" y1="105" x2="526" y2="128"/>
+                <line x1="520" y1="235" x2="556" y2="208"/><line x1="520" y1="235" x2="554" y2="262"/>
+                <line x1="135" y1="250" x2="100" y2="228"/><line x1="135" y1="250" x2="106" y2="280"/>
+              </g>
+              <g fill="#EDE9F7" opacity="0.75">
+                <circle cx="112" cy="148" r="3.5"/><circle cx="108" cy="200" r="3"/>
+                <circle cx="516" cy="72" r="3.5"/><circle cx="526" cy="128" r="3"/>
+                <circle cx="556" cy="208" r="3"/><circle cx="554" cy="262" r="3.5"/>
+                <circle cx="100" cy="228" r="3"/><circle cx="106" cy="280" r="3.5"/>
+              </g>
+              <circle cx="145" cy="172" r="9" fill="#7B8FC7"/>
+              <circle cx="485" cy="105" r="9" fill="#5BC8AF"/>
+              <circle cx="520" cy="235" r="9" fill="#9A90B5"/>
+              <circle cx="135" cy="250" r="9" fill="#EDE9F7"/>
+              <g font-family="Archivo, Arial, sans-serif" font-size="11" letter-spacing="2" text-anchor="middle" fill="#C9C3DD" opacity="0.9">
+                <text x="145" y="155">ENG</text>
+                <text x="485" y="87">PRODUCT</text>
+                <text x="520" y="262">SALES</text>
+                <text x="135" y="277">OPS</text>
+              </g>
+              <!-- the brain: every team's knowledge, remembered in one place -->
+              <g fill="#E8C777">
+                <ellipse cx="302" cy="176" rx="40" ry="48"/>
+                <ellipse cx="338" cy="176" rx="40" ry="48"/>
+                <circle cx="270" cy="148" r="20"/><circle cx="274" cy="202" r="17"/><circle cx="298" cy="126" r="17"/>
+                <circle cx="370" cy="148" r="20"/><circle cx="366" cy="202" r="17"/><circle cx="342" cy="126" r="17"/>
+              </g>
+              <g fill="none" stroke="#A87C33" stroke-width="3" stroke-linecap="round">
+                <path d="M320,130 C314,150 326,168 318,190 C314,204 322,214 320,222"/>
+                <path d="M281,148 c7,-11 19,-13 27,-5"/>
+                <path d="M272,176 c9,-7 19,-3 25,6"/>
+                <path d="M287,204 c7,-7 16,-6 22,-1"/>
+                <path d="M344,140 c10,-4 19,2 21,11"/>
+                <path d="M341,168 c11,-3 20,3 23,12"/>
+                <path d="M337,199 c9,-5 18,-2 23,5"/>
+              </g>
+              <!-- motes rising from the field into the memory -->
+              <g fill="#D8B266">
+                <circle cx="300" cy="240" r="3" opacity="0.9"/>
                 <circle cx="330" cy="266" r="2.5" opacity="0.7"/>
                 <circle cx="272" cy="292" r="2.5" opacity="0.6"/>
-                <circle cx="380" cy="248" r="2" opacity="0.5"/>
+                <circle cx="380" cy="252" r="2" opacity="0.5"/>
               </g>
-              <path d="M-10,300 C130,258 300,296 440,270 C540,252 600,276 650,260 L650,410 L-10,410 Z" fill="#ADBB93"/>
-              <path d="M-10,352 C160,318 360,346 650,314 L650,410 L-10,410 Z" fill="#6C7C5D"/>
-              <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#47543D">Augenta</text>
+              <path d="M-10,300 C130,258 300,296 440,270 C540,252 600,276 650,260 L650,410 L-10,410 Z" fill="#2E3A5C"/>
+              <path d="M-10,352 C160,318 360,346 650,314 L650,410 L-10,410 Z" fill="#1C2440"/>
+              <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#D9D4EC">Augenta</text>
             </svg>
           </div>
           <div class="feature-body">
@@ -236,22 +289,61 @@
         <!-- Featured: UP! -->
         <article class="feature feature-flip reveal">
           <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted cover art for UP!">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for UP! — three houses under an aurora with rising profit bars for renting, Airbnb, and flipping, and an arrow climbing across them">
               <defs>
                 <linearGradient id="upSky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#F5EDE4"/><stop offset="0.6" stop-color="#F3D9C2"/><stop offset="1" stop-color="#F2CFA6"/>
+                  <stop offset="0" stop-color="#0B1D26"/><stop offset="0.55" stop-color="#1E2A4A"/><stop offset="1" stop-color="#4A3E6B"/>
+                </linearGradient>
+                <linearGradient id="upAur" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#5BC8AF" stop-opacity="0"/><stop offset="0.45" stop-color="#5BC8AF" stop-opacity="0.5"/><stop offset="1" stop-color="#9A90B5" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="upBar" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#E8C777" stop-opacity="0.12"/><stop offset="1" stop-color="#E8C777" stop-opacity="0.92"/>
                 </linearGradient>
               </defs>
               <rect width="640" height="400" fill="url(#upSky)"/>
-              <circle cx="470" cy="120" r="72" fill="#E8C777" opacity="0.5"/>
-              <circle cx="470" cy="120" r="40" fill="#DDB05F"/>
-              <path d="M-10,300 C120,250 260,290 400,262 C520,238 600,272 650,252 L650,410 L-10,410 Z" fill="#ADBB93"/>
-              <path d="M-10,352 C150,312 340,344 650,310 L650,410 L-10,410 Z" fill="#6C7C5D"/>
-              <g stroke="#47543D" stroke-width="10" stroke-linecap="round" fill="none">
-                <path d="M150,330 L150,210"/>
-                <path d="M110,250 L150,208 L190,250"/>
+              <!-- stars -->
+              <g fill="#EDE9F7">
+                <circle cx="84" cy="176" r="1.6" opacity="0.9"/><circle cx="140" cy="64" r="1.3" opacity="0.7"/>
+                <circle cx="236" cy="150" r="1.8" opacity="0.85"/><circle cx="306" cy="52" r="1.4" opacity="0.6"/>
+                <circle cx="396" cy="118" r="1.5" opacity="0.75"/><circle cx="472" cy="46" r="1.8" opacity="0.9"/>
+                <circle cx="544" cy="150" r="1.3" opacity="0.6"/><circle cx="600" cy="86" r="1.6" opacity="0.8"/>
+                <circle cx="46" cy="252" r="1.3" opacity="0.55"/><circle cx="590" cy="216" r="1.4" opacity="0.6"/>
               </g>
-              <text x="46" y="120" font-family="Fraunces, Georgia, serif" font-size="64" font-style="italic" fill="#47543D">UP!</text>
+              <!-- aurora ribbons -->
+              <path d="M240,86 C340,44 460,96 660,40 L660,86 C500,128 380,84 240,120 Z" fill="url(#upAur)" opacity="0.85"/>
+              <path d="M180,160 C300,124 440,168 660,120 L660,150 C460,192 320,152 180,186 Z" fill="url(#upAur)" opacity="0.4"/>
+              <!-- profit bars rising behind each roof -->
+              <g>
+                <rect x="180" y="190" width="20" height="70" rx="4" fill="url(#upBar)"/>
+                <rect x="310" y="145" width="20" height="110" rx="4" fill="url(#upBar)"/>
+                <rect x="440" y="100" width="20" height="145" rx="4" fill="url(#upBar)"/>
+              </g>
+              <!-- arrow climbing across the bar tops -->
+              <path d="M172,186 L320,140 L446,98" fill="none" stroke="#EDCB82" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polygon points="462,92 449,104 445,90" fill="#EDCB82"/>
+              <!-- hills -->
+              <path d="M-10,290 C120,240 260,280 400,252 C520,228 600,262 650,242 L650,410 L-10,410 Z" fill="#2E3A5C"/>
+              <!-- houses with lit windows -->
+              <g>
+                <rect x="170" y="272" width="40" height="24" rx="2" fill="#101830"/>
+                <path d="M164,272 L190,254 L216,272 Z" fill="#0B1220"/>
+                <rect x="184" y="278" width="12" height="10" rx="1.5" fill="#E8C777"/>
+                <rect x="300" y="268" width="40" height="24" rx="2" fill="#101830"/>
+                <path d="M294,268 L320,250 L346,268 Z" fill="#0B1220"/>
+                <rect x="314" y="274" width="12" height="10" rx="1.5" fill="#E8C777"/>
+                <rect x="430" y="258" width="40" height="24" rx="2" fill="#101830"/>
+                <path d="M424,258 L450,240 L476,258 Z" fill="#0B1220"/>
+                <rect x="444" y="264" width="12" height="10" rx="1.5" fill="#E8C777"/>
+              </g>
+              <!-- strategy labels -->
+              <g font-family="Archivo, Arial, sans-serif" font-size="11" letter-spacing="2" text-anchor="middle" fill="#C9C3DD" opacity="0.9">
+                <text x="190" y="316">RENT</text>
+                <text x="320" y="312">AIRBNB</text>
+                <text x="450" y="302">FLIP</text>
+              </g>
+              <path d="M-10,352 C150,312 340,344 650,310 L650,410 L-10,410 Z" fill="#1C2440"/>
+              <text x="46" y="118" font-family="Fraunces, Georgia, serif" font-size="64" font-style="italic" fill="#D9D4EC">UP!</text>
             </svg>
           </div>
           <div class="feature-body">
@@ -268,27 +360,50 @@
         <!-- Featured: Polly AI -->
         <article class="feature reveal">
           <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted cover art for Polly AI">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for Polly AI — sound waves radiating from a microphone while audio bars climb from left to right, confidence rising">
               <defs>
                 <linearGradient id="pollySky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#EDEFE0"/><stop offset="1" stop-color="#DCE3D2"/>
+                  <stop offset="0" stop-color="#141B33"/><stop offset="1" stop-color="#3A2E58"/>
                 </linearGradient>
               </defs>
               <rect width="640" height="400" fill="url(#pollySky)"/>
+              <!-- stars -->
+              <g fill="#EDE9F7">
+                <circle cx="70" cy="180" r="1.5" opacity="0.8"/><circle cx="128" cy="60" r="1.3" opacity="0.6"/>
+                <circle cx="250" cy="44" r="1.6" opacity="0.85"/><circle cx="404" cy="56" r="1.3" opacity="0.6"/>
+                <circle cx="512" cy="40" r="1.7" opacity="0.9"/><circle cx="586" cy="120" r="1.4" opacity="0.7"/>
+                <circle cx="560" cy="230" r="1.4" opacity="0.55"/><circle cx="86" cy="300" r="1.3" opacity="0.5"/>
+              </g>
+              <!-- sound waves radiating from the mic -->
               <g fill="none" stroke-linecap="round">
-                <path d="M120,200 a200,200 0 0 1 400,0" stroke="#D9A9B8" stroke-width="26"/>
-                <path d="M170,200 a150,150 0 0 1 300,0" stroke="#9A90B5" stroke-width="22"/>
-                <path d="M220,200 a100,100 0 0 1 200,0" stroke="#6C7C5D" stroke-width="18"/>
-                <path d="M270,200 a50,50 0 0 1 100,0" stroke="#D8B266" stroke-width="14"/>
+                <path d="M120,318 a200,200 0 0 1 400,0" stroke="#9A90B5" stroke-width="26" opacity="0.9"/>
+                <path d="M170,318 a150,150 0 0 1 300,0" stroke="#7B8FC7" stroke-width="22" opacity="0.9"/>
+                <path d="M220,318 a100,100 0 0 1 200,0" stroke="#5BC8AF" stroke-width="18" opacity="0.9"/>
+                <path d="M270,318 a50,50 0 0 1 100,0" stroke="#E8C777" stroke-width="14"/>
               </g>
-              <g stroke="#47543D" stroke-width="7" stroke-linecap="round">
-                <line x1="212" y1="256" x2="212" y2="292"/>
-                <line x1="266" y1="244" x2="266" y2="318"/>
-                <line x1="320" y1="232" x2="320" y2="336"/>
-                <line x1="374" y1="244" x2="374" y2="318"/>
-                <line x1="428" y1="256" x2="428" y2="292"/>
+              <!-- microphone -->
+              <g stroke="#EDE9F7" stroke-linecap="round">
+                <rect x="302" y="248" width="36" height="54" rx="18" fill="#EDE9F7" stroke="none"/>
+                <path d="M294,282 a26,30 0 0 0 52,0" fill="none" stroke-width="5"/>
+                <line x1="320" y1="312" x2="320" y2="342" stroke-width="6"/>
+                <line x1="298" y1="344" x2="342" y2="344" stroke-width="6"/>
               </g>
-              <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#47543D">Polly&nbsp;AI</text>
+              <g stroke="#3A2E58" stroke-width="2" opacity="0.35" stroke-linecap="round">
+                <line x1="308" y1="264" x2="332" y2="264"/>
+                <line x1="308" y1="274" x2="332" y2="274"/>
+              </g>
+              <!-- audio bars climbing left to right -->
+              <g stroke-linecap="round" stroke-width="7">
+                <line x1="120" y1="374" x2="120" y2="360" stroke="#C9C3DD"/>
+                <line x1="152" y1="374" x2="152" y2="352" stroke="#D8B266"/>
+                <line x1="184" y1="374" x2="184" y2="356" stroke="#C9C3DD"/>
+                <line x1="216" y1="374" x2="216" y2="346" stroke="#D8B266"/>
+                <line x1="424" y1="374" x2="424" y2="342" stroke="#D8B266"/>
+                <line x1="456" y1="374" x2="456" y2="348" stroke="#C9C3DD"/>
+                <line x1="488" y1="374" x2="488" y2="336" stroke="#D8B266"/>
+                <line x1="520" y1="374" x2="520" y2="326" stroke="#C9C3DD"/>
+              </g>
+              <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#D9D4EC">Polly&nbsp;AI</text>
             </svg>
           </div>
           <div class="feature-body">
@@ -424,12 +539,32 @@
         </div>
       </div>
 
-      <!-- painted horizon footer -->
+      <!-- painted horizon footer: night hills, gold moon, palm silhouettes -->
       <div class="footer-art" aria-hidden="true">
         <svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice">
-          <path d="M-10,120 C200,80 420,124 660,96 C900,70 1140,116 1450,84 L1450,230 L-10,230 Z" fill="#C6D0B0" opacity="0.7"/>
-          <path d="M-10,160 C240,116 520,158 780,132 C1040,108 1260,150 1450,124 L1450,230 L-10,230 Z" fill="#6C7C5D"/>
-          <circle cx="1150" cy="66" r="26" fill="#DDB05F" opacity="0.85"/>
+          <defs>
+            <g id="ftPalm" fill="none" stroke="#1C2440" stroke-linecap="round">
+              <path d="M0,0 C-4,-28 4,-58 14,-84" stroke-width="9"/>
+              <g stroke-width="6">
+                <path d="M14,-84 Q-14,-106 -44,-96"/>
+                <path d="M14,-84 Q-8,-116 -32,-120"/>
+                <path d="M14,-84 Q14,-120 40,-126"/>
+                <path d="M14,-84 Q42,-110 68,-104"/>
+                <path d="M14,-84 Q48,-92 74,-78"/>
+                <path d="M14,-84 Q-20,-84 -42,-62"/>
+                <path d="M14,-84 Q40,-72 58,-48"/>
+              </g>
+              <circle cx="9" cy="-79" r="4" fill="#1C2440" stroke="none"/>
+              <circle cx="19" cy="-76" r="4" fill="#1C2440" stroke="none"/>
+            </g>
+          </defs>
+          <circle cx="1150" cy="66" r="46" fill="#E8C777" opacity="0.2"/>
+          <circle cx="1150" cy="66" r="26" fill="#E8C777" opacity="0.9"/>
+          <path d="M-10,120 C200,80 420,124 660,96 C900,70 1140,116 1450,84 L1450,230 L-10,230 Z" fill="#A9AECF" opacity="0.75"/>
+          <path d="M-10,160 C240,116 520,158 780,132 C1040,108 1260,150 1450,124 L1450,230 L-10,230 Z" fill="#2E3A5C"/>
+          <use href="#ftPalm" transform="translate(215,172) scale(1.05)"/>
+          <use href="#ftPalm" transform="translate(300,184) scale(0.72)"/>
+          <use href="#ftPalm" transform="translate(1262,152) scale(-0.95,0.95)"/>
         </svg>
       </div>
     </section>
