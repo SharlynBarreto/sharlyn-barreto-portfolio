@@ -189,8 +189,12 @@
           <h2>Selected work</h2>
         </div>
 
+        <!-- Stacked deck: each card is sticky at the same top offset; the next
+             card scrolls up and covers it while main.js sinks the covered card -->
+        <div class="project-stack">
+
         <!-- Featured: Augenta plugin -->
-        <article class="feature reveal">
+        <article class="p-card p-augenta">
           <div class="feature-art">
             <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for the Augenta memory plugin — a glowing brain of shared memory with teams across the organization connected to it like a constellation">
               <defs>
@@ -287,63 +291,85 @@
         </article>
 
         <!-- Featured: UP! -->
-        <article class="feature feature-flip reveal">
+        <article class="p-card p-flip p-up">
+          <div class="p-decor" aria-hidden="true">
+            <span class="p-cloud pc-1"></span>
+            <span class="p-cloud pc-2"></span>
+            <svg class="p-balloon pb-1" viewBox="0 0 40 96" style="--b:#E85D5D"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
+            <svg class="p-balloon pb-2" viewBox="0 0 40 96" style="--b:#F2D14B"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
+            <svg class="p-balloon pb-3" viewBox="0 0 40 96" style="--b:#5B9BD4"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
+            <svg class="p-balloon pb-4" viewBox="0 0 40 96" style="--b:#7BC47F"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
+            <svg class="p-balloon pb-5" viewBox="0 0 40 96" style="--b:#9A7BC4"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
+          </div>
           <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for UP! — three houses under an aurora with rising profit bars for renting, Airbnb, and flipping, and an arrow climbing across them">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Daytime sky cover art for UP! — a tiny house lifted by colorful balloons above three homes labeled rent, Airbnb, and flip, with profit bars and an arrow climbing across them">
               <defs>
-                <linearGradient id="upSky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#0B1D26"/><stop offset="0.55" stop-color="#1E2A4A"/><stop offset="1" stop-color="#4A3E6B"/>
+                <linearGradient id="upDay" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#5FB0E5"/><stop offset="0.6" stop-color="#A9D5F3"/><stop offset="1" stop-color="#DDEFFB"/>
                 </linearGradient>
-                <linearGradient id="upAur" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#5BC8AF" stop-opacity="0"/><stop offset="0.45" stop-color="#5BC8AF" stop-opacity="0.5"/><stop offset="1" stop-color="#9A90B5" stop-opacity="0"/>
-                </linearGradient>
-                <linearGradient id="upBar" x1="0" y1="1" x2="0" y2="0">
-                  <stop offset="0" stop-color="#E8C777" stop-opacity="0.12"/><stop offset="1" stop-color="#E8C777" stop-opacity="0.92"/>
+                <linearGradient id="upBar2" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#E8952F" stop-opacity="0.15"/><stop offset="1" stop-color="#E8952F" stop-opacity="0.9"/>
                 </linearGradient>
               </defs>
-              <rect width="640" height="400" fill="url(#upSky)"/>
-              <!-- stars -->
-              <g fill="#EDE9F7">
-                <circle cx="84" cy="176" r="1.6" opacity="0.9"/><circle cx="140" cy="64" r="1.3" opacity="0.7"/>
-                <circle cx="236" cy="150" r="1.8" opacity="0.85"/><circle cx="306" cy="52" r="1.4" opacity="0.6"/>
-                <circle cx="396" cy="118" r="1.5" opacity="0.75"/><circle cx="472" cy="46" r="1.8" opacity="0.9"/>
-                <circle cx="544" cy="150" r="1.3" opacity="0.6"/><circle cx="600" cy="86" r="1.6" opacity="0.8"/>
-                <circle cx="46" cy="252" r="1.3" opacity="0.55"/><circle cx="590" cy="216" r="1.4" opacity="0.6"/>
+              <rect width="640" height="400" fill="url(#upDay)"/>
+              <!-- sun -->
+              <circle cx="566" cy="62" r="44" fill="#FBE9B8" opacity="0.55"/>
+              <circle cx="566" cy="62" r="25" fill="#F7D877"/>
+              <!-- clouds -->
+              <g fill="#FFFFFF">
+                <g opacity="0.92"><ellipse cx="118" cy="72" rx="46" ry="16"/><ellipse cx="148" cy="60" rx="30" ry="13"/><ellipse cx="90" cy="62" rx="24" ry="11"/></g>
+                <g opacity="0.78"><ellipse cx="520" cy="146" rx="48" ry="16"/><ellipse cx="550" cy="134" rx="28" ry="11"/><ellipse cx="494" cy="136" rx="22" ry="9"/></g>
+                <g opacity="0.65"><ellipse cx="56" cy="152" rx="36" ry="12"/><ellipse cx="78" cy="143" rx="22" ry="9"/></g>
               </g>
-              <!-- aurora ribbons -->
-              <path d="M240,86 C340,44 460,96 660,40 L660,86 C500,128 380,84 240,120 Z" fill="url(#upAur)" opacity="0.85"/>
-              <path d="M180,160 C300,124 440,168 660,120 L660,150 C460,192 320,152 180,186 Z" fill="url(#upAur)" opacity="0.4"/>
+              <!-- balloon bunch lifting a tiny house -->
+              <g>
+                <g stroke="#3E5C77" stroke-width="1.1" opacity="0.6" fill="none">
+                  <path d="M225,70 L246,118"/><path d="M250,60 L250,118"/><path d="M276,72 L254,118"/>
+                  <path d="M215,88 L245,120"/><path d="M285,90 L255,120"/>
+                  <path d="M236,90 L247,120"/><path d="M266,92 L253,120"/>
+                </g>
+                <circle cx="225" cy="58" r="13" fill="#E85D5D"/>
+                <circle cx="250" cy="46" r="14" fill="#F2D14B"/>
+                <circle cx="276" cy="60" r="13" fill="#5B9BD4"/>
+                <circle cx="215" cy="78" r="11" fill="#7BC47F"/>
+                <circle cx="285" cy="80" r="11" fill="#9A7BC4"/>
+                <circle cx="236" cy="80" r="10" fill="#F2A24B"/>
+                <circle cx="266" cy="82" r="10" fill="#E88BB0"/>
+                <rect x="234" y="118" width="32" height="22" rx="2" fill="#FDF6E3"/>
+                <path d="M228,118 L250,101 L272,118 Z" fill="#C2603E"/>
+                <rect x="244" y="124" width="11" height="9" rx="1.5" fill="#F2B93B"/>
+              </g>
               <!-- profit bars rising behind each roof -->
               <g>
-                <rect x="180" y="190" width="20" height="70" rx="4" fill="url(#upBar)"/>
-                <rect x="310" y="145" width="20" height="110" rx="4" fill="url(#upBar)"/>
-                <rect x="440" y="100" width="20" height="145" rx="4" fill="url(#upBar)"/>
+                <rect x="180" y="190" width="20" height="70" rx="4" fill="url(#upBar2)"/>
+                <rect x="310" y="145" width="20" height="110" rx="4" fill="url(#upBar2)"/>
+                <rect x="440" y="100" width="20" height="145" rx="4" fill="url(#upBar2)"/>
               </g>
               <!-- arrow climbing across the bar tops -->
-              <path d="M172,186 L320,140 L446,98" fill="none" stroke="#EDCB82" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <polygon points="462,92 449,104 445,90" fill="#EDCB82"/>
+              <path d="M172,186 L320,140 L446,98" fill="none" stroke="#E8862B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polygon points="462,92 449,104 445,90" fill="#E8862B"/>
               <!-- hills -->
-              <path d="M-10,290 C120,240 260,280 400,252 C520,228 600,262 650,242 L650,410 L-10,410 Z" fill="#2E3A5C"/>
-              <!-- houses with lit windows -->
+              <path d="M-10,290 C120,240 260,280 400,252 C520,228 600,262 650,242 L650,410 L-10,410 Z" fill="#8FBC77"/>
+              <!-- houses with warm windows -->
               <g>
-                <rect x="170" y="272" width="40" height="24" rx="2" fill="#101830"/>
-                <path d="M164,272 L190,254 L216,272 Z" fill="#0B1220"/>
-                <rect x="184" y="278" width="12" height="10" rx="1.5" fill="#E8C777"/>
-                <rect x="300" y="268" width="40" height="24" rx="2" fill="#101830"/>
-                <path d="M294,268 L320,250 L346,268 Z" fill="#0B1220"/>
-                <rect x="314" y="274" width="12" height="10" rx="1.5" fill="#E8C777"/>
-                <rect x="430" y="258" width="40" height="24" rx="2" fill="#101830"/>
-                <path d="M424,258 L450,240 L476,258 Z" fill="#0B1220"/>
-                <rect x="444" y="264" width="12" height="10" rx="1.5" fill="#E8C777"/>
+                <rect x="170" y="272" width="40" height="24" rx="2" fill="#FDF6E3"/>
+                <path d="M164,272 L190,254 L216,272 Z" fill="#C2603E"/>
+                <rect x="184" y="278" width="12" height="10" rx="1.5" fill="#F2B93B"/>
+                <rect x="300" y="268" width="40" height="24" rx="2" fill="#FDF6E3"/>
+                <path d="M294,268 L320,250 L346,268 Z" fill="#C2603E"/>
+                <rect x="314" y="274" width="12" height="10" rx="1.5" fill="#F2B93B"/>
+                <rect x="430" y="258" width="40" height="24" rx="2" fill="#FDF6E3"/>
+                <path d="M424,258 L450,240 L476,258 Z" fill="#C2603E"/>
+                <rect x="444" y="264" width="12" height="10" rx="1.5" fill="#F2B93B"/>
               </g>
               <!-- strategy labels -->
-              <g font-family="Archivo, Arial, sans-serif" font-size="11" letter-spacing="2" text-anchor="middle" fill="#C9C3DD" opacity="0.9">
+              <g font-family="Archivo, Arial, sans-serif" font-size="11" letter-spacing="2" text-anchor="middle" fill="#14507E" opacity="0.95">
                 <text x="190" y="316">RENT</text>
                 <text x="320" y="312">AIRBNB</text>
                 <text x="450" y="302">FLIP</text>
               </g>
-              <path d="M-10,352 C150,312 340,344 650,310 L650,410 L-10,410 Z" fill="#1C2440"/>
-              <text x="46" y="118" font-family="Fraunces, Georgia, serif" font-size="64" font-style="italic" fill="#D9D4EC">UP!</text>
+              <path d="M-10,344 C150,310 340,340 650,306 L650,410 L-10,410 Z" fill="#6DA45C"/>
+              <text x="46" y="118" font-family="Fraunces, Georgia, serif" font-size="64" font-style="italic" fill="#14507E">UP!</text>
             </svg>
           </div>
           <div class="feature-body">
@@ -358,52 +384,76 @@
         </article>
 
         <!-- Featured: Polly AI -->
-        <article class="feature reveal">
+        <article class="p-card p-polly">
+          <div class="p-decor" aria-hidden="true">
+            <span class="p-note pn-1">&#9834;</span>
+            <span class="p-note pn-2">&#9835;</span>
+            <span class="p-note pn-3">&#9834;</span>
+          </div>
           <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for Polly AI — sound waves radiating from a microphone while audio bars climb from left to right, confidence rising">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Blush-pink cover art for Polly AI — a colorful parrot perched on a branch speaking into a microphone, sound waves and music notes drifting between them">
               <defs>
-                <linearGradient id="pollySky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#141B33"/><stop offset="1" stop-color="#3A2E58"/>
+                <linearGradient id="pollyPink" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#F9E3E7"/><stop offset="1" stop-color="#EFBFC9"/>
                 </linearGradient>
               </defs>
-              <rect width="640" height="400" fill="url(#pollySky)"/>
-              <!-- stars -->
-              <g fill="#EDE9F7">
-                <circle cx="70" cy="180" r="1.5" opacity="0.8"/><circle cx="128" cy="60" r="1.3" opacity="0.6"/>
-                <circle cx="250" cy="44" r="1.6" opacity="0.85"/><circle cx="404" cy="56" r="1.3" opacity="0.6"/>
-                <circle cx="512" cy="40" r="1.7" opacity="0.9"/><circle cx="586" cy="120" r="1.4" opacity="0.7"/>
-                <circle cx="560" cy="230" r="1.4" opacity="0.55"/><circle cx="86" cy="300" r="1.3" opacity="0.5"/>
+              <rect width="640" height="400" fill="url(#pollyPink)"/>
+              <!-- soft clouds and sparkles -->
+              <g fill="#FFFFFF">
+                <g opacity="0.55"><ellipse cx="120" cy="66" rx="44" ry="14"/><ellipse cx="148" cy="56" rx="26" ry="10"/></g>
+                <g opacity="0.45"><ellipse cx="500" cy="72" rx="50" ry="15"/><ellipse cx="532" cy="61" rx="28" ry="11"/></g>
+                <circle cx="420" cy="40" r="2" opacity="0.7"/><circle cx="580" cy="150" r="1.8" opacity="0.6"/>
+                <circle cx="70" cy="200" r="1.8" opacity="0.6"/><circle cx="610" cy="300" r="2" opacity="0.5"/>
               </g>
-              <!-- sound waves radiating from the mic -->
+              <!-- branch -->
+              <path d="M28,318 C120,306 220,310 316,320" stroke="#8A5A3B" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <!-- parrot: tail, body, wing, head, beak -->
+              <path d="M200,278 C168,310 148,342 132,366 C158,350 186,320 208,292 Z" fill="#3E7FC1"/>
+              <path d="M208,282 C186,318 170,348 158,372 C182,352 202,322 218,296 Z" fill="#F2C14B"/>
+              <path d="M216,284 C202,320 192,350 186,374 C206,352 220,324 230,298 Z" fill="#E0475B"/>
+              <path d="M208,292 q-2,12 -10,16 M224,294 q2,12 -4,18" stroke="#6E4630" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <ellipse cx="222" cy="243" rx="44" ry="55" fill="#E0475B" transform="rotate(-12 222 243)"/>
+              <path d="M204,214 C186,244 190,278 210,296 C232,290 244,262 240,228 Z" fill="#3E7FC1"/>
+              <path d="M212,222 C202,244 204,266 216,282 C230,274 236,252 232,228 Z" fill="#F2C14B"/>
+              <circle cx="252" cy="180" r="30" fill="#E0475B"/>
+              <ellipse cx="262" cy="186" rx="13" ry="15" fill="#FBF4EE"/>
+              <circle cx="261" cy="180" r="3" fill="#2A2222"/>
+              <path d="M272,184 C288,178 300,184 302,194 C294,190 284,190 276,193 Z" fill="#E9E2D2"/>
+              <path d="M274,198 C284,200 292,206 294,214 C285,212 277,208 272,203 Z" fill="#3A322C"/>
+              <!-- sound waves from beak to mic -->
               <g fill="none" stroke-linecap="round">
-                <path d="M120,318 a200,200 0 0 1 400,0" stroke="#9A90B5" stroke-width="26" opacity="0.9"/>
-                <path d="M170,318 a150,150 0 0 1 300,0" stroke="#7B8FC7" stroke-width="22" opacity="0.9"/>
-                <path d="M220,318 a100,100 0 0 1 200,0" stroke="#5BC8AF" stroke-width="18" opacity="0.9"/>
-                <path d="M270,318 a50,50 0 0 1 100,0" stroke="#E8C777" stroke-width="14"/>
+                <path d="M312,178 a26,26 0 0 1 0,44" stroke="#B85C74" stroke-width="6" opacity="0.85"/>
+                <path d="M330,168 a40,40 0 0 1 0,64" stroke="#4FA08B" stroke-width="6" opacity="0.7"/>
+                <path d="M348,158 a54,54 0 0 1 0,84" stroke="#D9A22B" stroke-width="6" opacity="0.6"/>
               </g>
-              <!-- microphone -->
-              <g stroke="#EDE9F7" stroke-linecap="round">
-                <rect x="302" y="248" width="36" height="54" rx="18" fill="#EDE9F7" stroke="none"/>
-                <path d="M294,282 a26,30 0 0 0 52,0" fill="none" stroke-width="5"/>
-                <line x1="320" y1="312" x2="320" y2="342" stroke-width="6"/>
-                <line x1="298" y1="344" x2="342" y2="344" stroke-width="6"/>
+              <!-- music notes -->
+              <g fill="#9E5570" opacity="0.75">
+                <circle cx="356" cy="130" r="5.5"/><rect x="360.5" y="102" width="3" height="28" rx="1.5"/><path d="M363,102 q10,4 12,12 q-6,-4 -12,-6 z"/>
               </g>
-              <g stroke="#3A2E58" stroke-width="2" opacity="0.35" stroke-linecap="round">
-                <line x1="308" y1="264" x2="332" y2="264"/>
-                <line x1="308" y1="274" x2="332" y2="274"/>
+              <g fill="#9E5570" opacity="0.5" transform="translate(390,88) scale(0.7)">
+                <circle cx="0" cy="28" r="5.5"/><rect x="4.5" y="0" width="3" height="28" rx="1.5"/><path d="M7,0 q10,4 12,12 q-6,-4 -12,-6 z"/>
               </g>
-              <!-- audio bars climbing left to right -->
-              <g stroke-linecap="round" stroke-width="7">
-                <line x1="120" y1="374" x2="120" y2="360" stroke="#C9C3DD"/>
-                <line x1="152" y1="374" x2="152" y2="352" stroke="#D8B266"/>
-                <line x1="184" y1="374" x2="184" y2="356" stroke="#C9C3DD"/>
-                <line x1="216" y1="374" x2="216" y2="346" stroke="#D8B266"/>
-                <line x1="424" y1="374" x2="424" y2="342" stroke="#D8B266"/>
-                <line x1="456" y1="374" x2="456" y2="348" stroke="#C9C3DD"/>
-                <line x1="488" y1="374" x2="488" y2="336" stroke="#D8B266"/>
-                <line x1="520" y1="374" x2="520" y2="326" stroke="#C9C3DD"/>
+              <!-- microphone on a stand -->
+              <ellipse cx="430" cy="352" rx="34" ry="8" fill="#7A6570" opacity="0.9"/>
+              <line x1="430" y1="352" x2="426" y2="262" stroke="#5C4C56" stroke-width="6" stroke-linecap="round"/>
+              <g transform="rotate(-22 428 250)">
+                <rect x="398" y="234" width="60" height="32" rx="16" fill="#5C5164"/>
+                <rect x="398" y="234" width="26" height="32" rx="13" fill="#CFC6D4"/>
+                <g stroke="#9A8FA3" stroke-width="1.6">
+                  <line x1="404" y1="240" x2="404" y2="260"/><line x1="410" y1="238" x2="410" y2="262"/><line x1="416" y1="238" x2="416" y2="262"/>
+                </g>
               </g>
-              <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#D9D4EC">Polly&nbsp;AI</text>
+              <!-- audio bars -->
+              <g stroke-linecap="round" stroke-width="7" opacity="0.8">
+                <line x1="58" y1="374" x2="58" y2="358" stroke="#B85C74"/>
+                <line x1="86" y1="374" x2="86" y2="350" stroke="#D9A22B"/>
+                <line x1="470" y1="374" x2="470" y2="346" stroke="#B85C74"/>
+                <line x1="500" y1="374" x2="500" y2="352" stroke="#D9A22B"/>
+                <line x1="530" y1="374" x2="530" y2="340" stroke="#B85C74"/>
+                <line x1="560" y1="374" x2="560" y2="330" stroke="#D9A22B"/>
+                <line x1="588" y1="374" x2="588" y2="344" stroke="#B85C74"/>
+              </g>
+              <text x="46" y="100" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#8F3F55">Polly&nbsp;AI</text>
             </svg>
           </div>
           <div class="feature-body">
