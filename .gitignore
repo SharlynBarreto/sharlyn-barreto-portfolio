@@ -9,3 +9,8 @@ node_modules/
 
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Claude Code skills (local tooling, not site content)
+.claude/
+.agents/
+skills-lock.json

@@ -1,36 +1,44 @@
 /* ==========================================================================
-   Sharlyn Barreto — Portfolio
-   Palette: "Morning field" — sage, cream, soft gold. Calm, grounded, editorial.
+   Sharlyn Barreto - Portfolio
+   Palette: "Slate & Terracotta" - cool slate-grey neutrals, one terracotta
+   accent. Variable names kept from the earlier Morning-field palette so the
+   rest of the sheet is untouched: cream-* are now cool paper surfaces,
+   sage-* are slate neutrals, gold/rose/coral/lav-* fold into the terracotta
+   accent family (lav-500 stays a slate neutral). Illustrations and the
+   night-sky hero/footer keep their own painted colors.
    Type: Styrene (falls back to Archivo) for UI, Fraunces for display serif.
    ========================================================================== */
 
 :root {
-  /* color story */
-  --cream-50:  #FBF9F2;
-  --cream-100: #F7F3E8;
-  --cream-200: #EFE8D6;
-  --gold-200:  #EBD9AC;
-  --gold-400:  #D8B266;
-  --gold-500:  #C99C4E;
-  --gold-700:  #8F6C2A;   /* gold dark enough for small text on cream */
-  --sage-100:  #E2E7D7;
-  --sage-200:  #CDD6BD;
-  --sage-400:  #97A67B;
-  --sage-600:  #6C7C5D;
-  --sage-800:  #47543D;
-  --ink:       #2D3229;
-  --ink-soft:  #5A6353;
-  /* wildflower accents */
-  --terra-200: #F2D9CC;
-  --terra-500: #C2603E;
-  --terra-600: #A94F31;
-  --terra-700: #8F3F26;   /* dark enough for small text on cream */
-  --rose-500:  #C97B8E;
-  --rose-700:  #9E5570;
-  --lav-500:   #9187B0;
-  --lav-700:   #6A6190;
-  --coral-500: #D98A62;
-  --coral-700: #A85C36;
+  /* surfaces (former creams, now cool paper) */
+  --cream-50:  #FBFCFD;
+  --cream-100: #F0F2F5;
+  --cream-200: #DDE1E6;
+  /* accent family (former golds, now terracotta) */
+  --gold-200:  #EAD9CF;
+  --gold-400:  #C77E5A;
+  --gold-500:  #B45532;
+  --gold-700:  #9C4728;   /* dark enough for small text on the grey ground */
+  /* slate neutrals (former sages) */
+  --sage-100:  #E4E8EC;
+  --sage-200:  #D3D8DE;
+  --sage-400:  #98A2AF;
+  --sage-600:  #5F6875;
+  --sage-800:  #414A56;
+  --ink:       #262B33;
+  --ink-soft:  #5B6470;
+  /* single-accent lock: every former wildflower hue resolves to the
+     terracotta family or a slate neutral */
+  --terra-200: #EFD9CF;
+  --terra-500: #B45532;
+  --terra-600: #9C4728;
+  --terra-700: #7E3920;   /* dark enough for small text on the grey ground */
+  --rose-500:  #B45532;
+  --rose-700:  #9C4728;
+  --lav-500:   #8B95A3;
+  --lav-700:   #9C4728;
+  --coral-500: #C77E5A;
+  --coral-700: #9C4728;
 
   /* type */
   --sans: "Styrene A", "Styrene B", "Archivo", -apple-system, "Helvetica Neue", sans-serif;
@@ -111,16 +119,16 @@ h1 em, h2 em, .contact-headline em {
 .btn-solid {
   background: linear-gradient(120deg, var(--terra-600), var(--coral-500) 115%);
   color: var(--cream-50);
-  box-shadow: 0 10px 28px -12px rgba(169, 79, 49, 0.65);
+  box-shadow: 0 10px 28px -12px rgba(156, 71, 40, 0.6);
 }
 .btn-solid:hover {
   background: linear-gradient(120deg, var(--terra-500), var(--coral-500) 100%);
-  box-shadow: 0 16px 34px -12px rgba(169, 79, 49, 0.65);
+  box-shadow: 0 16px 34px -12px rgba(156, 71, 40, 0.6);
 }
 .btn-outline {
   border: 1px solid var(--sage-400);
   color: var(--sage-800);
-  background: rgba(251, 249, 242, 0.5);
+  background: rgba(251, 252, 253, 0.55);
 }
 .btn-outline:hover { border-color: var(--sage-800); background: var(--cream-50); }
 .btn-quiet {
@@ -164,10 +172,10 @@ h1 em, h2 em, .contact-headline em {
   transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
 }
 .site-nav.scrolled {
-  background: rgba(247, 243, 232, 0.82);
+  background: rgba(240, 242, 245, 0.86);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 rgba(71, 84, 61, 0.09);
+  box-shadow: 0 1px 0 rgba(38, 43, 51, 0.09);
 }
 .nav-inner {
   max-width: var(--container);
@@ -494,11 +502,11 @@ h2 .wi { display: inline-block; will-change: transform; }
   position: absolute;
   inset: -20%;
   pointer-events: none;
-  background: radial-gradient(640px 420px at 18% 28%, rgba(216, 178, 102, 0.16), transparent 62%);
+  background: radial-gradient(640px 420px at 18% 28%, rgba(180, 85, 50, 0.09), transparent 62%);
   animation: light-drift 16s ease-in-out infinite alternate;
 }
 .leadership::before {
-  background: radial-gradient(560px 400px at 78% 22%, rgba(194, 96, 62, 0.1), transparent 60%);
+  background: radial-gradient(560px 400px at 78% 22%, rgba(180, 85, 50, 0.07), transparent 60%);
   animation-duration: 20s;
 }
 @keyframes light-drift {
@@ -540,7 +548,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   z-index: 1;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 30px 60px -28px rgba(71, 84, 61, 0.45);
+  box-shadow: 0 30px 60px -28px rgba(38, 43, 51, 0.45);
 }
 .photo-main img { aspect-ratio: 4 / 4.4; object-fit: cover; }
 .photo-offset {
@@ -551,7 +559,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   border-radius: 16px;
   overflow: hidden;
   border: 5px solid var(--cream-50);
-  box-shadow: 0 24px 44px -20px rgba(45, 50, 41, 0.4);
+  box-shadow: 0 24px 44px -20px rgba(38, 43, 51, 0.4);
   transform: rotate(2.5deg);
 }
 .photo-offset img { aspect-ratio: 4 / 5; object-fit: cover; }
@@ -572,7 +580,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   border: 1px solid var(--cream-200);
   border-radius: var(--radius);
   padding: 26px 28px;
-  box-shadow: 0 18px 40px -30px rgba(71, 84, 61, 0.4);
+  box-shadow: 0 18px 40px -30px rgba(38, 43, 51, 0.4);
 }
 .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .edu-row h3 { font-size: 1.08rem; font-weight: 600; }
@@ -669,7 +677,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   height: auto;
   display: block;
   border-radius: var(--radius);
-  box-shadow: 0 34px 70px -34px rgba(71, 84, 61, 0.5);
+  box-shadow: 0 34px 70px -34px rgba(38, 43, 51, 0.5);
   transition: transform 0.6s var(--ease-out);
 }
 .feature:hover .feature-art svg { transform: translateY(-6px) scale(1.01); }
@@ -690,6 +698,69 @@ h2 .wi { display: inline-block; will-change: transform; }
 .feature-body > p { color: var(--ink-soft); max-width: 52ch; }
 .feature-body .text-link { display: inline-block; margin-top: 22px; }
 
+/* --- Stacked project cards (.p-card markup) -------------------------------
+   Layout mirrors .feature; .p-decor floats small accents around the card
+   without affecting flow (balloons read their color from the inline --b). */
+.p-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  margin-bottom: clamp(64px, 8vw, 104px);
+}
+.p-flip .feature-art { order: 2; }
+.p-flip .feature-body { order: 1; }
+.p-card:hover .feature-art svg { transform: translateY(-6px) scale(1.01); }
+.p-card .feature-art, .p-card .feature-body { position: relative; z-index: 1; }
+
+.p-decor {
+  position: absolute;
+  inset: -36px 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.p-cloud {
+  position: absolute;
+  width: 120px; height: 34px;
+  background: #FFFFFF;
+  border-radius: 999px;
+  opacity: 0.55;
+  filter: blur(2px);
+}
+.pc-1 { left: -2%; top: 10%; }
+.pc-2 { right: -1%; bottom: 12%; width: 88px; height: 26px; opacity: 0.4; }
+
+.p-balloon {
+  position: absolute;
+  width: 30px; height: 72px;
+  fill: var(--b);
+  opacity: 0.85;
+  animation: p-drift 7s ease-in-out infinite;
+}
+.p-balloon .s { fill: none; stroke: var(--ink-soft); stroke-width: 2; opacity: 0.6; }
+.pb-1 { left: 3%; top: -6%; }
+.pb-2 { left: 44%; top: -10%; width: 24px; height: 58px; animation-delay: -1.5s; }
+.pb-3 { right: 4%; top: -4%; animation-delay: -3s; }
+.pb-4 { left: -1%; bottom: 6%; width: 24px; height: 58px; animation-delay: -4.5s; }
+.pb-5 { right: -1%; bottom: 10%; width: 26px; height: 62px; animation-delay: -6s; }
+
+.p-note {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--rose-700);
+  opacity: 0.55;
+  animation: p-drift 6s ease-in-out infinite;
+}
+.pn-1 { left: -1%; top: 4%; }
+.pn-2 { right: 1%; top: -6%; font-size: 1.9rem; animation-delay: -2s; }
+.pn-3 { right: 10%; bottom: -2%; animation-delay: -4s; }
+
+@keyframes p-drift {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
 .earlier-title {
   font-family: var(--serif);
   font-weight: 400;
@@ -707,10 +778,10 @@ h2 .wi { display: inline-block; will-change: transform; }
   border: 1px solid var(--cream-200);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 20px 44px -32px rgba(71, 84, 61, 0.45);
+  box-shadow: 0 20px 44px -32px rgba(38, 43, 51, 0.45);
   transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 32px 56px -32px rgba(71, 84, 61, 0.55); }
+.card:hover { transform: translateY(-6px); box-shadow: 0 32px 56px -32px rgba(38, 43, 51, 0.55); }
 .card figure { overflow: hidden; }
 .card figure img {
   width: 100%;
@@ -746,7 +817,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   border-top: 3px solid var(--gold-400);
   border-radius: var(--radius);
   padding: 30px 32px;
-  box-shadow: 0 20px 44px -34px rgba(71, 84, 61, 0.4);
+  box-shadow: 0 20px 44px -34px rgba(38, 43, 51, 0.4);
 }
 .skill-card:nth-child(2) { border-top-color: var(--terra-500); }
 .skill-card:nth-child(3) { border-top-color: var(--rose-500); }
@@ -846,6 +917,10 @@ h2 .wi { display: inline-block; will-change: transform; }
   .feature, .feature-flip { grid-template-columns: 1fr; gap: 28px; }
   .feature-flip .feature-art { order: 0; }
   .feature-flip .feature-body { order: 1; }
+  .p-card { grid-template-columns: 1fr; gap: 28px; }
+  .p-flip .feature-art { order: 0; }
+  .p-flip .feature-body { order: 1; }
+  .p-decor { display: none; }
   .card-grid { grid-template-columns: 1fr 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
 }
@@ -863,6 +938,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   html { scroll-behavior: auto; }
   .reveal-load { opacity: 1; transform: none; animation: none; }
   .sun, .cloud-a, .cloud-b, .cloud-c, .bird-1, .bird-2, .scroll-cue i { animation: none; }
+  .p-balloon, .p-note { animation: none; }
   .birds { display: none; }
   .hero-name .word { animation: none; transform: none; }
   .ticker-track { animation: none; }
