@@ -80,6 +80,16 @@ section { scroll-margin-top: 84px; }
 
 ::selection { background: var(--terra-200); color: var(--ink); }
 
+/* keyboard focus: on-brand ring, cream over the dark hero/video contexts */
+:focus-visible {
+  outline: 2px solid var(--terra-600);
+  outline-offset: 3px;
+}
+.hero :focus-visible,
+.site-nav:not(.scrolled) :focus-visible {
+  outline-color: var(--cream-50);
+}
+
 /* ---------- shared type ---------- */
 .kicker {
   font-size: 0.78rem;
@@ -222,7 +232,7 @@ h1 em, h2 em, .contact-headline em {
   flex-direction: column;
   justify-content: center;
   gap: 6px;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -519,7 +529,9 @@ h2 .wi { display: inline-block; will-change: transform; }
    lerp-smoothed); CSS only primes the elements for cheap compositing.
    Elements stay visible without JS.
    ========================================================================== */
-.reveal, .section-head.reveal > *, .feature.reveal > * {
+/* Only the nodes main.js actually scrubs get a compositing hint; the
+   .section-head container itself never moves (its kicker and split words do). */
+.reveal:not(.section-head), .section-head.reveal .kicker {
   will-change: transform, opacity;
 }
 
@@ -663,15 +675,6 @@ h2 .wi { display: inline-block; will-change: transform; }
 .projects {
   background: linear-gradient(180deg, var(--cream-100), var(--sage-100) 140%);
 }
-.feature {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-  margin-bottom: clamp(64px, 8vw, 104px);
-}
-.feature-flip .feature-art { order: 2; }
-.feature-flip .feature-body { order: 1; }
 .feature-art svg {
   width: 100%;
   height: auto;
@@ -680,7 +683,6 @@ h2 .wi { display: inline-block; will-change: transform; }
   box-shadow: 0 34px 70px -34px rgba(38, 43, 51, 0.5);
   transition: transform 0.6s var(--ease-out);
 }
-.feature:hover .feature-art svg { transform: translateY(-6px) scale(1.01); }
 .feature-date {
   font-size: 0.78rem;
   font-weight: 600;
@@ -814,14 +816,10 @@ h2 .wi { display: inline-block; will-change: transform; }
 .skill-card {
   background: var(--cream-50);
   border: 1px solid var(--cream-200);
-  border-top: 3px solid var(--gold-400);
   border-radius: var(--radius);
   padding: 30px 32px;
   box-shadow: 0 20px 44px -34px rgba(38, 43, 51, 0.4);
 }
-.skill-card:nth-child(2) { border-top-color: var(--terra-500); }
-.skill-card:nth-child(3) { border-top-color: var(--rose-500); }
-.skill-card:nth-child(4) { border-top-color: var(--lav-500); }
 .skill-card h3 {
   font-family: var(--serif);
   font-weight: 400;
@@ -861,11 +859,7 @@ h2 .wi { display: inline-block; will-change: transform; }
   font-size: clamp(2.2rem, 5.4vw, 3.6rem);
 }
 .contact-headline em {
-  background: linear-gradient(100deg, var(--terra-500), var(--rose-500) 55%, var(--lav-500));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--terra-600); /* fallback */
+  color: var(--terra-600);
 }
 
 /* per-section accent kickers */
@@ -914,9 +908,6 @@ h2 .wi { display: inline-block; will-change: transform; }
   .menu-toggle { display: flex; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photos { max-width: 440px; margin: 0 auto; }
-  .feature, .feature-flip { grid-template-columns: 1fr; gap: 28px; }
-  .feature-flip .feature-art { order: 0; }
-  .feature-flip .feature-body { order: 1; }
   .p-card { grid-template-columns: 1fr; gap: 28px; }
   .p-flip .feature-art { order: 0; }
   .p-flip .feature-body { order: 1; }
@@ -929,6 +920,13 @@ h2 .wi { display: inline-block; will-change: transform; }
   .nav-actions .btn-quiet { display: none; }
   .hero-content h1 br { display: none; }
   .edu-row { flex-direction: column; gap: 4px; }
+  /* the email address is the longest unbreakable string on the page */
+  .contact .btn-lg {
+    font-size: 1rem;
+    padding: 15px 22px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
 }
 
 /* ==========================================================================
@@ -943,5 +941,8 @@ h2 .wi { display: inline-block; will-change: transform; }
   .hero-name .word { animation: none; transform: none; }
   .ticker-track { animation: none; }
   .projects::before, .leadership::before { animation: none; }
-  * { transition-duration: 0.01ms !important; }
+  /* keep instant color/state feedback; disable only movement */
+  .btn:hover, .card:hover { transform: none; }
+  .card:hover figure img { transform: none; }
+  .p-card:hover .feature-art svg { transform: none; }
 }

@@ -14,3 +14,9 @@ node_modules/
 .claude/
 .agents/
 skills-lock.json
+
+# Impeccable design context (local)
+PRODUCT.md
+DESIGN.md
+.impeccable/
+.codex/
