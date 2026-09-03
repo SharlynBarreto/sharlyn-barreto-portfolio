@@ -8,196 +8,140 @@
   <meta property="og:title" content="Sharlyn Barreto · Software Engineer">
   <meta property="og:description" content="Software engineer in New York building products end to end.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101C36'/%3E%3Ccircle cx='14' cy='14' r='1.5' fill='%23EDE9F7'/%3E%3Ccircle cx='26' cy='8' r='1.2' fill='%23EDE9F7'/%3E%3Ccircle cx='56' cy='20' r='1.3' fill='%23EDE9F7'/%3E%3Ccircle cx='40' cy='24' r='9' fill='%23E8C777'/%3E%3Cpath d='M0 40 Q16 30 32 38 T64 36 L64 64 L0 64 Z' fill='%23A9AECF'/%3E%3Cpath d='M0 50 Q20 42 40 48 T64 46 L64 64 L0 64 Z' fill='%232E3A5C'/%3E%3C/svg%3E">
-  <link rel="preload" as="image" href="assets/hero-aurora-poster.jpg" fetchpriority="high">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173226'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23D4935C'%3ESB%3C/text%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/sharlyn-cutout.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,400;0,9..144,500;1,9..144,340;1,9..144,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<main id="top">
 
-  <!-- ============================== NAV ============================== -->
-  <header class="site-nav" id="siteNav">
-    <div class="nav-inner">
-      <a class="wordmark" href="#top">Sharlyn <em>Barreto</em></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="btn btn-quiet" href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span>
-        </button>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="label resume" href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">View résumé <span aria-hidden="true">→</span></a>
+      <span class="label year"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>2026</span>
+    </div>
+    <h1 class="word">Sharlyn Barreto</h1>
+    <div class="hero-grid">
+      <div class="intro">
+        <p class="label">End to end</p>
+        <p class="role">Software<br><strong>Engineer</strong></p>
+        <p class="bio">I build software end to end, from cloud infrastructure to interfaces people enjoy using. Currently shipping generative-AI systems at a pre-seed startup; CS at Queens College (CUNY), class of 2026.</p>
+        <p class="name">Portfolio</p>
+      </div>
+      <img class="photo" src="assets/sharlyn-cutout.png" alt="Sharlyn Barreto, smiling, in a white blazer">
+      <svg class="stamp" viewBox="0 0 156 156" aria-hidden="true">
+        <g class="ring">
+          <defs><path id="stampPath" d="M78,18 a60,60 0 1,1 -0.01,0"/></defs>
+          <circle cx="78" cy="78" r="60" fill="none" stroke="currentColor" stroke-opacity="0.25"/>
+          <text textLength="356" lengthAdjust="spacing"><textPath href="#stampPath" startOffset="0">Software Engineer · New York · End to End ·</textPath></text>
+        </g>
+        <circle cx="78" cy="78" r="38" fill="none" stroke="currentColor" stroke-opacity="0.25"/>
+        <text class="mono" x="78" y="93" text-anchor="middle">SB</text>
+        <path class="stars" d="M78 34l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/>
+        <path class="stars" d="M78 116l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about-band" id="about">
+  <div class="wrap about-ref">
+    <figure class="arch">
+      <img loading="lazy" src="assets/graduation-cutout.png" alt="Sharlyn in cap and gown at graduation, making a heart with her hands">
+    </figure>
+    <div class="about-copy">
+      <h2 class="about-h">About</h2>
+      <p class="about-text">Hey there! I’m Sharlyn, a software engineer who loves turning ideas into functional, impactful software. Whether I'm building data-driven dashboards, experimenting with multi-agent systems, or refining user experiences, I enjoy tackling problems from end to end. Welcome to my website!</p>
+      <dl class="edu-row">
+        <div><dt>Education</dt><dd>Queens College, CUNY</dd></div>
+        <div><dt>Degree</dt><dd>Computer Science B.A.</dd></div>
+        <div><dt>Graduated</dt><dd>May 2026</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT I DO / HOW I WORK / PHOTO ================= -->
+<section class="studio">
+  <div class="wrap">
+    <p class="label" style="color: var(--accent)">Stack</p>
+    <h2 class="stack-h">What I work with</h2>
+    <div class="stack-grid">
+      <div>
+        <p class="label col-label">Languages and frameworks</p>
+        <ul class="chips">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg>Python</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>TypeScript</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>JavaScript</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>React</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg>Node.js</li><li><svg viewBox="0 0 24 24" aria-hidden="true" class="ln"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>SQL</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></svg>Java</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"/></svg>C++</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/></svg>Tailwind CSS</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label col-label">Cloud, data and tools</p>
+        <ul class="chips">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true" class="ln"><path d="M7 18.5h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 12.2 3.3 3.3 0 0 0 7 18.5z"/></svg>Microsoft Azure</li><li>Bicep</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"/></svg>Google Cloud</li><li><svg viewBox="0 0 24 24" aria-hidden="true" class="ln"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></svg>Cosmos DB</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727"/></svg>Cloudflare</li><li>REST API design</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>Git &amp; GitHub</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.984 13.836a.5.5 0 0 1-.353-.146l-.745-.743a.5.5 0 1 1 .706-.708l.392.391 1.181-1.18a.5.5 0 0 1 .708.707l-1.535 1.533a.504.504 0 0 1-.354.146zm9.353-.147l1.534-1.532a.5.5 0 0 0-.707-.707l-1.181 1.18-.392-.391a.5.5 0 1 0-.706.708l.746.743a.497.497 0 0 0 .706-.001zM4.527 7.452l2.557-1.585A1 1 0 0 0 7.09 4.17L4.533 2.56A1 1 0 0 0 3 3.406v3.196a1.001 1.001 0 0 0 1.527.85zm2.03-2.436L4 6.602V3.406l2.557 1.61zM24 12.5c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3h-2.08a3.503 3.503 0 0 1-3.46 3 3.502 3.502 0 0 1-3.46-3h-.558c-.972 0-1.85-.399-2.482-1.042V17c0 1.654 1.346 3 3 3h.04c.244-1.693 1.7-3 3.46-3 1.93 0 3.5 1.57 3.5 3.5S13.43 24 11.5 24a3.502 3.502 0 0 1-3.46-3H8c-2.206 0-4-1.794-4-4V9.899A5.008 5.008 0 0 1 0 5c0-2.757 2.243-5 5-5s5 2.243 5 5a5.005 5.005 0 0 1-4.952 4.998A2.482 2.482 0 0 0 7.482 12h.558c.244-1.693 1.7-3 3.46-3a3.502 3.502 0 0 1 3.46 3h2.08a3.503 3.503 0 0 1 3.46-3c1.93 0 3.5 1.57 3.5 3.5zm-15 8c0 1.378 1.122 2.5 2.5 2.5s2.5-1.122 2.5-2.5-1.122-2.5-2.5-2.5S9 19.122 9 20.5zM5 9c2.206 0 4-1.794 4-4S7.206 1 5 1 1 2.794 1 5s1.794 4 4 4zm9 3.5c0-1.378-1.122-2.5-2.5-2.5S9 11.122 9 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm9 0c0-1.378-1.122-2.5-2.5-2.5S18 11.122 18 12.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5zm-13 8a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0zm12 0c0 1.93-1.57 3.5-3.5 3.5a3.503 3.503 0 0 1-3.46-3.002c-.007.001-.013.005-.021.005l-.506.017h-.017a.5.5 0 0 1-.016-.999l.506-.017c.018-.002.035.006.052.007A3.503 3.503 0 0 1 20.5 17c1.93 0 3.5 1.57 3.5 3.5zm-1 0c0-1.378-1.122-2.5-2.5-2.5S18 19.122 18 20.5s1.122 2.5 2.5 2.5 2.5-1.122 2.5-2.5z"/></svg>CI/CD</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg>Jira</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma</li><li>Agile / Scrum</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label col-label">AI tooling</p>
+        <ul class="chips">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>Anthropic Claude</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>Google Gemini</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>OpenAI Codex</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude Agent SDK</li><li>LLM &amp; generative models</li><li>Agent workflows</li><li>Prompt engineering</li><li>Evaluation &amp; guardrails</li><li>Context engineering</li><li>A/B testing</li>
+        </ul>
       </div>
     </div>
-  </header>
-
-  <!-- Mobile overlay menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <nav aria-label="Mobile">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact">Contact</a>
-      <a class="mobile-resume" href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">View résumé ↗</a>
-    </nav>
   </div>
+</section>
 
-  <main id="top">
-
-    <!-- ============================== HERO ============================== -->
-    <section class="hero" id="hero">
-      <!-- src is assigned by main.js so the right rendition loads per viewport
-           (and nothing loads under prefers-reduced-motion, the poster stays) -->
-      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none"
-             poster="assets/hero-aurora-poster.jpg" aria-hidden="true"></video>
-      <div class="hero-scrim" aria-hidden="true"></div>
-
-      <div class="hero-content" data-fade>
-        <p class="kicker reveal-load">Software Engineer · New York</p>
-        <h1 class="hero-name" aria-label="Sharlyn Barreto">
-          <span class="line" data-kinetic="-1"><span class="word">Sharlyn</span></span>
-          <span class="line line-2" data-kinetic="1"><span class="word"><em>Barreto</em><span class="dot">.</span></span></span>
-        </h1>
-        <p class="hero-sub reveal-load">I build software end to end, from cloud infrastructure to
-        interfaces people enjoy using. Currently shipping generative-AI systems at a pre-seed
-        startup; CS at Queens College (CUNY), class of 2026.</p>
-        <div class="hero-cta reveal-load">
-          <a class="btn btn-solid" href="#projects">See my work</a>
-          <a class="btn btn-outline" href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">View résumé</a>
-        </div>
-        <div class="hero-social reveal-load">
-          <a href="https://www.linkedin.com/in/sharlyn-barreto/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
-          </a>
-          <a href="https://github.com/SharlynBarreto" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
-          </a>
-        </div>
+<!-- ================= SELECTED WORKS ================= -->
+<section class="works">
+  <div class="wrap">
+    <div class="rule-head">
+      <span class="label">Selected works</span>
+    </div>
+    <div class="works-head">
+      <h2 class="works-h">Built <em>end to end</em></h2>
+      <div class="works-nav" aria-label="Scroll works">
+        <button type="button" data-dir="-1" aria-label="Previous">←</button>
+        <button type="button" data-dir="1" aria-label="Next">→</button>
       </div>
-
-      <a class="scroll-cue reveal-load" href="#about" aria-label="Scroll to about section">
-        <span>Scroll</span>
-        <i></i>
+    </div>
+    <div class="cards-wrap">
+    <div class="cards">
+      <a class="frame" href="https://augenta.ai" target="_blank" rel="noopener" aria-label="Augenta" style="--i:0">
+        <div class="art"><span class="idx">01</span><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="clNight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D3D2E"/><stop offset="1" stop-color="#10241A"/></linearGradient>
+                <radialGradient id="clGlow" cx="0.5" cy="0.58" r="0.5"><stop offset="0" stop-color="#D4935C" stop-opacity="0.32"/><stop offset="1" stop-color="#D4935C" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="640" height="400" fill="url(#clNight)"/>
+              <rect width="640" height="400" fill="url(#clGlow)"/>
+              <!-- hanger -->
+              <g fill="none" stroke="#D4935C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M320 128 c0-10 0-18 0-24 c0-12 10-20 20-20 s18 8 18 18 -10 14 -20 20"/>
+                <path d="M320 128 L206 206 H434 Z"/>
+              </g>
+              <!-- garment -->
+              <path d="M262 206 l-16 28 30 12 v98 h88 v-98 l30-12 -16-28 -24-9 c-8 12-18 18-34 18 s-26-6-34-18 z" fill="#F2F5F0" opacity="0.94"/>
+              <!-- search lens over the garment -->
+              <g fill="none" stroke="#D4935C" stroke-width="7" stroke-linecap="round">
+                <circle cx="392" cy="270" r="46" fill="#173226" fill-opacity="0.45"/>
+                <path d="M426 304 l38 38"/>
+              </g>
+              <g fill="#F2F5F0" opacity="0.92">
+                <circle cx="376" cy="258" r="4"/><circle cx="392" cy="252" r="4"/><circle cx="408" cy="262" r="4"/>
+                <circle cx="378" cy="278" r="4"/><circle cx="396" cy="284" r="4"/><circle cx="410" cy="280" r="4"/>
+              </g>
+              <text x="236" y="62" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="34" fill="#F2F5F0">Closet Labs</text>
+            </svg></div>
+        <div class="cap"><span class="title">Closet Labs</span><span class="meta">Visual fashion search engine<br>TypeScript · CLIP · Next.js · React 19</span></div>
       </a>
-
-      <div class="hero-ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>Python · TypeScript · React · Node.js · SQL · Azure · GCP · Generative AI · Agent Workflows · Prompt Engineering · LLM Evaluation · A/B Testing · CI/CD · Figma&nbsp;·&nbsp;</span><span>Python · TypeScript · React · Node.js · SQL · Azure · GCP · Generative AI · Agent Workflows · Prompt Engineering · LLM Evaluation · A/B Testing · CI/CD · Figma&nbsp;·&nbsp;</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== ABOUT ============================== -->
-    <section class="section about" id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">01 · About</p>
-          <h2>A little about me</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-photos reveal">
-            <figure class="photo-main">
-              <img src="assets/background1.png" alt="Portrait of Sharlyn Barreto" loading="lazy">
-            </figure>
-            <figure class="photo-offset">
-              <img src="assets/sharlyn.jpeg" alt="Sharlyn seated on a grand staircase" loading="lazy">
-            </figure>
-            <svg class="photo-blob" viewBox="0 0 400 400" aria-hidden="true">
-              <path fill="#D9DDEF" d="M200,40 C280,30 360,90 366,180 C372,272 300,352 208,362 C118,372 40,306 34,214 C28,124 118,50 200,40 Z"/>
-            </svg>
-          </div>
-          <div class="about-text">
-            <p class="lede reveal">Calm, clear, and quietly dependable. That's the bar for everything I&nbsp;ship.</p>
-            <p class="reveal">I'm a software engineer in New York, finished my B.A. in Computer Science at Queens College (CUNY) May 2026, on the Dean's List. Most recently I've been a Forward Deploy Engineer at Augenta AI, a pre-seed startup, where I build and evaluate generative-AI systems, and before that I interned in engineering at Morgan Stanley.</p>
-            <p class="reveal">I care about the whole arc of a product: the data model underneath, the infrastructure it runs on, the interface it presents, and the person on the other side of the screen.</p>
-            <div class="edu-card reveal">
-              <div class="edu-row">
-                <div>
-                  <h3>Queens College, CUNY</h3>
-                  <p>B.A. Computer Science · Dean's List</p>
-                </div>
-                <span class="edu-date">May 2026</span>
-              </div>
-              <ul class="chips">
-                <li>Databases</li><li>Data Structures &amp; Algorithms</li><li>Software Engineering</li><li>Web Technologies</li><li>OOP: C++ &amp; Java</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== EXPERIENCE ============================== -->
-    <section class="section experience" id="experience">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">02 · Experience</p>
-          <h2>Where I've worked</h2>
-        </div>
-
-        <div class="timeline">
-          <article class="job reveal">
-            <div class="job-marker" aria-hidden="true"></div>
-            <header class="job-head">
-              <h3>Augenta AI <span class="job-note">· Pre-seed</span></h3>
-              <p class="job-role">Forward Deploy Engineer</p>
-              <p class="job-meta">March 2026 to Present · Manhattan, NY</p>
-            </header>
-            <ul class="job-points">
-              <li>Built and evaluated generative-AI systems for an AI-agent platform: a context-engineering layer with a Cosmos-backed memory store, a /v1 serving API, and an NLI groundedness gate that set the quality bar for when synthesized model outputs could be trusted.</li>
-              <li>Designed and shipped AI products end to end: an agentic workflow of twelve human-gated skills and a full-stack serving and accounts platform, driving requirements, launch readiness, and cross-team hand-offs.</li>
-              <li>Authored the platform's Azure cloud infrastructure in Bicep and shipped it across dev, staging, and production, turning prototypes into reliable, launch-ready products.</li>
-            </ul>
-            <ul class="chips">
-              <li>Python</li><li>TypeScript</li><li>Azure · Bicep</li><li>LLM evaluation</li><li>API design</li>
-            </ul>
-          </article>
-
-          <article class="job reveal">
-            <div class="job-marker" aria-hidden="true"></div>
-            <header class="job-head">
-              <h3>Morgan Stanley</h3>
-              <p class="job-role">Software Engineer Intern</p>
-              <p class="job-meta">January 2025 · Manhattan, NY</p>
-            </header>
-            <ul class="job-points">
-              <li>Contributed to schema design for resource types in the Ansible Automation Platform, collaborating with senior engineers to standardize configuration across the platform.</li>
-              <li>Implemented granular validation logic for change management, improving data accuracy by roughly 22% and reducing manual validation time by about 15%.</li>
-              <li>Helped streamline the emergency change-request workflow, contributing to roughly 26% faster resolution of high-severity incident tickets.</li>
-            </ul>
-            <ul class="chips">
-              <li>Ansible Automation Platform</li><li>Schema design</li><li>Change management</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== PROJECTS ============================== -->
-    <section class="section projects" id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">03 · Projects</p>
-          <h2>Selected work</h2>
-        </div>
-
-        <!-- Stacked deck: each card is sticky at the same top offset; the next
-             card scrolls up and covers it while main.js sinks the covered card -->
-        <div class="project-stack">
-
-        <!-- Featured: Augenta plugin -->
-        <article class="p-card p-augenta">
-          <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Painted night-sky cover art for the Augenta memory plugin: a glowing brain of shared memory with teams across the organization connected to it like a constellation">
+      <a class="frame" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener" aria-label="UP!" style="--i:1">
+        <div class="art"><span class="idx">02</span><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
                 <linearGradient id="augSky" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#101C36"/><stop offset="1" stop-color="#35305C"/>
@@ -278,32 +222,11 @@
               <path d="M-10,300 C130,258 300,296 440,270 C540,252 600,276 650,260 L650,410 L-10,410 Z" fill="#2E3A5C"/>
               <path d="M-10,352 C160,318 360,346 650,314 L650,410 L-10,410 Z" fill="#1C2440"/>
               <text x="46" y="110" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#D9D4EC">Augenta</text>
-            </svg>
-          </div>
-          <div class="feature-body">
-            <p class="feature-date">March 2026 to Present · Augenta AI</p>
-            <h3>Augenta · Enterprise Memory Plugin</h3>
-            <p>Collaborated on Augenta's enterprise plugin that gives AI coding agents a living memory. It captures what the agent learns as you work, rates every memory on importance and relevance, and surfaces reusable skills to users based on the patterns in their own work. Because the agent recalls only curated, high-signal memories instead of raw history, it also sharply optimizes token usage across sessions.</p>
-            <ul class="chips">
-              <li>TypeScript</li><li>Python</li><li>Agent hooks</li><li>LLM curation</li><li>Azure</li>
-            </ul>
-            <a class="text-link" href="https://augenta.ai" target="_blank" rel="noopener">Visit augenta.ai →</a>
-          </div>
-        </article>
-
-        <!-- Featured: UP! -->
-        <article class="p-card p-flip p-up">
-          <div class="p-decor" aria-hidden="true">
-            <span class="p-cloud pc-1"></span>
-            <span class="p-cloud pc-2"></span>
-            <svg class="p-balloon pb-1" viewBox="0 0 40 96" style="--b:#E85D5D"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
-            <svg class="p-balloon pb-2" viewBox="0 0 40 96" style="--b:#F2D14B"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
-            <svg class="p-balloon pb-3" viewBox="0 0 40 96" style="--b:#5B9BD4"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
-            <svg class="p-balloon pb-4" viewBox="0 0 40 96" style="--b:#7BC47F"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
-            <svg class="p-balloon pb-5" viewBox="0 0 40 96" style="--b:#9A7BC4"><path d="M20,58 C9,58 2,46 2,32 C2,16 10,5 20,5 C30,5 38,16 38,32 C38,46 31,58 20,58 Z"/><path d="M16,64 h8 l-4,-7 z"/><path class="s" d="M20,64 C15,76 26,82 20,94"/></svg>
-          </div>
-          <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Daytime sky cover art for UP!, a tiny house lifted by colorful balloons above three homes labeled rent, Airbnb, and flip, with profit bars and an arrow climbing across them">
+            </svg></div>
+        <div class="cap"><span class="title">Augenta</span><span class="meta">Enterprise memory plugin<br>Azure · Python · LLM eval</span></div>
+      </a>
+      <a class="frame" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener" aria-label="Polly AI" style="--i:2">
+        <div class="art"><span class="idx">03</span><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
                 <linearGradient id="upDay" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#5FB0E5"/><stop offset="0.6" stop-color="#A9D5F3"/><stop offset="1" stop-color="#DDEFFB"/>
@@ -371,28 +294,11 @@
               </g>
               <path d="M-10,344 C150,310 340,340 650,306 L650,410 L-10,410 Z" fill="#6DA45C"/>
               <text x="46" y="118" font-family="Fraunces, Georgia, serif" font-size="64" font-style="italic" fill="#14507E">UP!</text>
-            </svg>
-          </div>
-          <div class="feature-body">
-            <p class="feature-date">September 2024</p>
-            <h3>UP! · Real-Estate Insight Dashboard</h3>
-            <p>A property-analysis dashboard that turns dense real-estate data into clear ROI insights for non-expert investors: real-time housing data and financial modeling through RapidAPI, deployed and served on Cloudflare.</p>
-            <ul class="chips">
-              <li>React</li><li>TailwindCSS</li><li>Cloudflare</li><li>RapidAPI</li><li>JavaScript</li>
-            </ul>
-            <a class="text-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
-
-        <!-- Featured: Polly AI -->
-        <article class="p-card p-polly">
-          <div class="p-decor" aria-hidden="true">
-            <span class="p-note pn-1">&#9834;</span>
-            <span class="p-note pn-2">&#9835;</span>
-            <span class="p-note pn-3">&#9834;</span>
-          </div>
-          <div class="feature-art">
-            <svg viewBox="0 0 640 400" role="img" aria-label="Blush-pink cover art for Polly AI: a colorful parrot perched on a branch speaking into a microphone, sound waves and music notes drifting between them">
+            </svg></div>
+        <div class="cap"><span class="title">UP!</span><span class="meta">Real-estate insight dashboard<br>React · Data</span></div>
+      </a>
+      <a class="frame" href="https://github.com/SharlynBarreto/Nail_Salon" target="_blank" rel="noopener" aria-label="Salon booking" style="--i:3">
+        <div class="art"><span class="idx">04</span><span class="p-note pn-1" aria-hidden="true">&#9834;</span><span class="p-note pn-2" aria-hidden="true">&#9835;</span><span class="p-note pn-3" aria-hidden="true">&#9834;</span><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
                 <linearGradient id="pollyPink" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stop-color="#F9E3E7"/><stop offset="1" stop-color="#EFBFC9"/>
@@ -454,177 +360,94 @@
                 <line x1="560" y1="374" x2="560" y2="330" stroke="#D9A22B"/>
                 <line x1="588" y1="374" x2="588" y2="344" stroke="#B85C74"/>
               </g>
-              <text x="46" y="100" font-family="Fraunces, Georgia, serif" font-size="52" font-style="italic" fill="#8F3F55">Polly&nbsp;AI</text>
-            </svg>
-          </div>
-          <div class="feature-body">
-            <p class="feature-date">October 2025</p>
-            <h3>Polly AI · Multimodal Feedback Platform</h3>
-            <p>Real-time emotion and audio analysis running at 30+ frames per second, helping speakers see how they come across. Impact validated with data: users improved their scores by 56%.</p>
-            <ul class="chips">
-              <li>React</li><li>Python</li><li>DeepFace</li><li>Google APIs</li><li>GCP</li>
-            </ul>
-            <a class="text-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">View on GitHub →</a>
-          </div>
-        </article>
+            </svg></div>
+        <div class="cap"><span class="title">Polly AI</span><span class="meta">Multimodal feedback platform<br>Python · Google APIs</span></div>
+      </a>
+      <article class="frame" style="--i:4">
+        <div class="art"><span class="idx">05</span><img loading="lazy" src="assets/project1.jpg" alt="Nail salon booking website"></div>
+        <div class="cap"><span class="title">Salon booking</span><span class="meta">Earlier build<br>HTML · CSS · JavaScript</span></div>
+      </article>
+      <a class="frame more-card" style="--i:5" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">
+        <div class="art more-art"><span>Let's see<br><em>more</em> →</span></div>
+        <div class="cap"><span class="title">GitHub</span><span class="meta">Every build, past and present</span></div>
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Earlier builds -->
-        <div class="earlier reveal">
-          <h3 class="earlier-title">Earlier builds</h3>
-          <div class="card-grid">
-            <a class="card" href="https://github.com/SharlynBarreto/Nail_Salon" target="_blank" rel="noopener">
-              <figure><img src="assets/project1.jpg" alt="Nail salon booking website screenshot" loading="lazy"></figure>
-              <div class="card-body">
-                <h4>Nail Salon Booking Page</h4>
-                <p>Appointment scheduling site for a local nail business.</p>
-                <span class="card-tags">HTML · CSS · JavaScript · Bootstrap</span>
-              </div>
-            </a>
-            <a class="card" href="https://sharlynbarreto.github.io/PortfolioWebSB/" target="_blank" rel="noopener">
-              <figure><img src="assets/project2.jpg" alt="First portfolio website screenshot" loading="lazy"></figure>
-              <div class="card-body">
-                <h4>First Portfolio Website</h4>
-                <p>Where it all started: my first site, hand-built.</p>
-                <span class="card-tags">HTML · CSS · JavaScript · jQuery</span>
-              </div>
-            </a>
-            <a class="card" href="https://github.com/SharlynBarreto/Project.4" target="_blank" rel="noopener">
-              <figure><img src="assets/project3.png" alt="Roman to Arabic converter GUI screenshot" loading="lazy"></figure>
-              <div class="card-body">
-                <h4>Roman → Arabic Converter</h4>
-                <p>Java desktop GUI converting Roman numerals to Arabic values.</p>
-                <span class="card-tags">Java · Eclipse</span>
-              </div>
-            </a>
-          </div>
-          <a class="text-link more-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">More on GitHub →</a>
+<!-- ================= WHERE I HAVE WORKED ================= -->
+<section class="xp-band">
+  <div class="wrap">
+    <div class="xp">
+      <p class="label">Where I've worked</p>
+      <div class="xp-grid">
+        <div class="xp-item">
+          <span class="when">Jul 2026 to present</span>
+          <div><h3>Augenta AI <em>Forward Deploy Engineer</em></h3><p>Context-engineering memory platform, a /v1 serving API, and an NLI groundedness gate. Azure infrastructure in Bicep across dev, staging, and production.</p></div>
+        </div>
+        <div class="xp-item">
+          <span class="when">Jan 2025</span>
+          <div><h3>Morgan Stanley <em>Software Engineer Intern</em></h3><p>Schema design for the Ansible Automation Platform and validation logic for change management, improving data accuracy by roughly 22%.</p></div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ============================== SKILLS ============================== -->
-    <section class="section skills" id="skills">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">04 · Skills</p>
-          <h2>What I work with</h2>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <h3>AI &amp; Generative Systems</h3>
-            <ul class="chips">
-              <li>LLM &amp; generative models</li><li>Agent workflows</li><li>Prompt engineering</li><li>Model-output evaluation &amp; guardrails</li><li>NLI groundedness gating</li><li>Context-engineering pipelines</li><li>AI-assisted development</li>
-            </ul>
-          </div>
-          <div class="skill-card reveal">
-            <h3>Engineering</h3>
-            <ul class="chips">
-              <li>Python</li><li>TypeScript</li><li>JavaScript (React, Node.js)</li><li>SQL</li><li>Azure &amp; GCP</li><li>REST / v1 API design</li><li>Git &amp; GitHub</li><li>CI/CD</li>
-            </ul>
-          </div>
-          <div class="skill-card reveal">
-            <h3>Product &amp; Data</h3>
-            <ul class="chips">
-              <li>Product strategy</li><li>Roadmapping</li><li>Requirements &amp; launch readiness</li><li>A/B testing</li><li>Data-driven prioritization</li><li>User research</li>
-            </ul>
-          </div>
-          <div class="skill-card reveal">
-            <h3>Tools &amp; Practices</h3>
-            <ul class="chips">
-              <li>Jira</li><li>Figma</li><li>Agile / Scrum</li><li>Contract &amp; unit testing</li><li>Cross-functional collaboration</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ================= LEADERSHIP ================= -->
+<section class="lead">
+  <div class="wrap">
+    <div class="rule-head"><span class="label">Beyond the code: Leadership experience</span></div>
+    <div class="lead-grid">
+      <article class="frame">
+        <div class="art"><img loading="lazy" src="assets/ColorStack.jpg" alt="ColorStack club members at Queens College"></div>
+        <div class="cap"><span class="title">ColorStack · Queens College</span><span class="role">Founding Treasurer · Nov 2025 to May 2026</span></div>
+      </article>
+      <article class="frame">
+        <div class="art"><img loading="lazy" src="assets/ASCEND.jpg" alt="ASCEND club members at Queens College"></div>
+        <div class="cap"><span class="title">ASCEND · Queens College</span><span class="role">Director of Marketing · Sep 2024 to May 2025</span></div>
+      </article>
+      <article class="frame">
+        <div class="art"><img loading="lazy" src="assets/ALPFA.jpg" alt="ALPFA members on an office visit"></div>
+        <div class="cap"><span class="title">ALPFA · Queens College</span><span class="role">Event Coordinator · Sep 2025 to present</span></div>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <!-- ============================== LEADERSHIP ============================== -->
-    <section class="section leadership" id="leadership">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker">05 · Leadership</p>
-          <h2>Beyond the code</h2>
-        </div>
-        <div class="card-grid lead-grid">
-          <article class="card lead-card reveal">
-            <figure><img src="assets/ColorStack.jpg" alt="ColorStack club members at Queens College" loading="lazy"></figure>
-            <div class="card-body">
-              <h4>ColorStack · Queens College</h4>
-              <p class="lead-role">Founding Treasurer · Nov 2025 to May 2026</p>
-              <p>Managed a $2,300 budget and led fundraising that generated $1,000+ in additional capital, keeping the chapter financially sustainable for 50+ members.</p>
-            </div>
-          </article>
-          <article class="card lead-card reveal">
-            <figure><img src="assets/ASCEND.jpg" alt="ASCEND club members at Queens College" loading="lazy"></figure>
-            <div class="card-body">
-              <h4>ASCEND · Queens College</h4>
-              <p class="lead-role">Director of Marketing · Sep 2024 to May 2025</p>
-              <p>Led a 15-person team to grow membership by 25%, analyzing cross-channel metrics to iterate on campaigns and lift digital engagement 50%.</p>
-            </div>
-          </article>
-          <article class="card lead-card reveal">
-            <figure><img src="assets/ALPFA.jpg" alt="ALPFA members on an office visit" loading="lazy"></figure>
-            <div class="card-body">
-              <h4>ALPFA · Queens College</h4>
-              <p class="lead-role">Event Coordinator · Sep 2025 to Present</p>
-              <p>Coordinated professional-development events and office visits connecting Latino students with industry mentors and employers.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <!-- ============================== CONTACT ============================== -->
-    <section class="section contact" id="contact">
-      <div class="container contact-inner">
-        <p class="kicker reveal">06 · Contact</p>
-        <h2 class="contact-headline reveal">Let's build something <em>good</em>.</h2>
-        <p class="contact-sub reveal">I'm graduating in May 2026 and open to software engineering roles in New York and remote. If you'd like to talk, my inbox is open.</p>
-        <a class="btn btn-solid btn-lg reveal" href="mailto:sharlynbarreto1@gmail.com">sharlynbarreto1@gmail.com</a>
-        <div class="contact-links reveal">
-          <a href="https://www.linkedin.com/in/sharlyn-barreto/" target="_blank" rel="noopener">LinkedIn</a>
-          <span>·</span>
-          <a href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">GitHub</a>
-          <span>·</span>
-          <a href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
-        </div>
-      </div>
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <h2>Let's build <em>something</em> good</h2>
+      <svg class="star-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
+    </div>
+    <div class="divider">
+      <p class="label">Let's connect</p>
+      <ul>
+        <li><span class="k">@</span><a href="mailto:sharlynbarreto1@gmail.com">sharlynbarreto1@gmail.com</a></li>
+        <li><span class="k">NY</span><span>Based in New York, USA</span></li>
+        <li><span class="k">CV</span><a href="assets/Sharlyn-Barreto-Resume.pdf" target="_blank" rel="noopener">View résumé</a></li>
+      </ul>
+    </div>
+    <div class="divider">
+      <p class="label">Follow</p>
+      <ul>
+        <li><span class="k">in</span><a href="https://www.linkedin.com/in/sharlyn-barreto/" target="_blank" rel="noopener">linkedin.com/in/sharlyn-barreto</a></li>
+        <li><span class="k">gh</span><a href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">github.com/SharlynBarreto</a></li>
+        <li><span class="k">ai</span><a href="https://augenta.ai" target="_blank" rel="noopener">augenta.ai</a></li>
+      </ul>
+    </div>
+    <div class="mono-wrap">
+      <div class="mono-big">S<span class="slash">/</span>B</div>
+      <a class="mono-more" href="#about">Who am I <em>further</em></a>
+    </div>
+  </div>
+</footer>
 
-      <!-- painted horizon footer: night hills, gold moon, palm silhouettes -->
-      <div class="footer-art" aria-hidden="true">
-        <svg viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice">
-          <defs>
-            <g id="ftPalm" fill="none" stroke="#1C2440" stroke-linecap="round">
-              <path d="M0,0 C-4,-28 4,-58 14,-84" stroke-width="9"/>
-              <g stroke-width="6">
-                <path d="M14,-84 Q-14,-106 -44,-96"/>
-                <path d="M14,-84 Q-8,-116 -32,-120"/>
-                <path d="M14,-84 Q14,-120 40,-126"/>
-                <path d="M14,-84 Q42,-110 68,-104"/>
-                <path d="M14,-84 Q48,-92 74,-78"/>
-                <path d="M14,-84 Q-20,-84 -42,-62"/>
-                <path d="M14,-84 Q40,-72 58,-48"/>
-              </g>
-              <circle cx="9" cy="-79" r="4" fill="#1C2440" stroke="none"/>
-              <circle cx="19" cy="-76" r="4" fill="#1C2440" stroke="none"/>
-            </g>
-          </defs>
-          <circle cx="1150" cy="66" r="46" fill="#E8C777" opacity="0.2"/>
-          <circle cx="1150" cy="66" r="26" fill="#E8C777" opacity="0.9"/>
-          <path d="M-10,120 C200,80 420,124 660,96 C900,70 1140,116 1450,84 L1450,230 L-10,230 Z" fill="#A9AECF" opacity="0.75"/>
-          <path d="M-10,160 C240,116 520,158 780,132 C1040,108 1260,150 1450,124 L1450,230 L-10,230 Z" fill="#2E3A5C"/>
-          <use href="#ftPalm" transform="translate(215,172) scale(1.05)"/>
-          <use href="#ftPalm" transform="translate(300,184) scale(0.72)"/>
-          <use href="#ftPalm" transform="translate(1262,152) scale(-0.95,0.95)"/>
-        </svg>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Designed &amp; built by Sharlyn Barreto · <span id="year"></span></p>
-  </footer>
-
-  <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
