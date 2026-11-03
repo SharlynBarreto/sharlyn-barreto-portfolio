@@ -146,7 +146,20 @@ a { color: inherit; text-decoration: none; }
 .folder-tab::after { right: -14px; background: radial-gradient(circle at 100% 0, transparent 13.5px, var(--fc) 14px); }
 .folder-tab .no { font: 400 0.72rem/1 var(--serif); letter-spacing: 0; opacity: 0.7; }
 .folder-tab[aria-selected="true"] { font: italic 400 1.15rem/1 var(--serif); letter-spacing: 0; text-transform: none; }
-.folder-tab:hover:not([aria-selected="true"]) { filter: brightness(1.06); }
+/* hover: the whole file slides up out of the stack a little (the tab grows
+   upward with it, staying attached), the number nudges over and a thin
+   underline draws under the label. Selected tabs stay put. */
+.folder { transition: top 0.6s var(--ease), translate 0.45s var(--ease); }
+.folder:has(> .folder-tab:hover:not([aria-selected="true"])),
+.folder:has(> .folder-tab:focus-visible:not([aria-selected="true"])) { translate: 0 -12px; }
+.folder-tab { transition: font 0.3s, padding 0.3s, height 0.45s var(--ease), box-shadow 0.45s var(--ease); }
+.folder-tab:hover:not([aria-selected="true"]) { height: calc(var(--tab) + 6px); box-shadow: 0 -8px 18px -10px rgba(0, 0, 0, 0.45); }
+.folder-tab .no { display: inline-block; transition: transform 0.35s var(--ease), opacity 0.3s; }
+.folder-tab:hover:not([aria-selected="true"]) .no { transform: translateX(-3px) rotate(-8deg); opacity: 1; }
+.folder-tab span.lbl { position: relative; }
+.folder-tab span.lbl::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.4s var(--ease); }
+.folder-tab:hover:not([aria-selected="true"]) span.lbl::after { transform: scaleX(1); }
 .folder-tab:focus-visible { outline: 2px solid var(--accent-night); outline-offset: 3px; }
 .folder-body { position: relative; height: 100%; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;
   padding: 56px 56px 40px; border-radius: 0 16px 16px 16px; background: var(--fc);
@@ -547,7 +560,8 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .dot-nav, .dot-nav a, .dot-nav span { transition: none; }
   .tt-sun, .tt-rays, .tt-bite { transition: none; }
-  .folder, .folder-tab, .folder-body > * { transition: none; }
+  .folder, .folder-tab, .folder-body > *, .folder-tab .no, .folder-tab span.lbl::after { transition: none; }
+  .folder:has(> .folder-tab:hover), .folder:has(> .folder-tab:focus-visible) { translate: none; }
   .p-note { animation: none; }
   .stack-panel.in .tiles li { animation: none; }
   .stack-tab, .tab-ic, .contact-list a { transition: none; }
