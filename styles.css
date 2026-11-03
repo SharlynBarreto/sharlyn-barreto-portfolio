@@ -406,7 +406,8 @@ a { color: inherit; text-decoration: none; }
 .contact-list a { border-bottom: 1px solid transparent; transition: border-color 0.25s, color 0.25s; }
 .contact-list a:hover, .contact-list a:focus-visible { color: var(--accent-dark); border-bottom-color: currentColor; outline: none; }
 .contact-art { position: relative; overflow: hidden; border-top-left-radius: 70% 100%; background: linear-gradient(160deg, #D3CBC0, #B9AEA2); }
-.contact-art img { position: absolute; right: 6%; top: 50%; width: min(62%, 220px); transform: translateY(-50%) rotate(8deg); filter: drop-shadow(0 12px 18px rgba(40, 30, 20, 0.2)); }
+/* orange tree photo fills the swish; framed on the fruit-heavy canopy */
+.contact-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 40%; }
 .contact-base { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px 22px; border-top: 1px solid var(--line);
   font: 600 0.62rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); }
 /* set like a small label in the italic serif used for "something" */
@@ -539,6 +540,12 @@ a { color: inherit; text-decoration: none; }
 .has-cursor .tiles li { touch-action: pan-y; }
 .tiles li .blob { transform-origin: 50% 100%; }
 .gsap-on .stack-panel.in .tiles li { animation: none; }
+
+/* contact (js/contact.js): words rise from under a mask; icons pop on hover */
+.contact-wave h2 .cw { display: inline-block; }
+.contact-list li { overflow: visible; }
+.contact-list li:hover svg { stroke: var(--accent-dark); }
+.contact-list svg { transition: stroke 0.25s; }
 
 /* counters keep their width steady while counting */
 [data-count] { display: inline-block; font-variant-numeric: tabular-nums; color: var(--accent-night); font-weight: 600; }

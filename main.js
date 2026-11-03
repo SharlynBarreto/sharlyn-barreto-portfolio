@@ -6,16 +6,19 @@
    Motion modules (js/) layer GSAP on top; they are skipped for reduced
    motion or when GSAP fails to load, leaving the static page intact. */
 
-import { readEnv } from './js/env.js';
-import { initHero } from './js/hero.js';
-import { initCursor } from './js/cursor.js';
-import { initProgressNav } from './js/progressNav.js';
-import { initTilt } from './js/tilt.js';
-import { initCounters } from './js/counters.js';
-import { initTimeline } from './js/timeline.js';
-import { initStackDrop } from './js/stackDrop.js';
-import { initTheme } from './js/theme.js';
-import { initReveals } from './js/reveals.js';
+/* ?v= on every import busts browser caches on deploy; bump it together with
+   the versions in index.html (one find-and-replace across the repo). */
+import { readEnv } from './js/env.js?v=20261103r';
+import { initHero } from './js/hero.js?v=20261103r';
+import { initCursor } from './js/cursor.js?v=20261103r';
+import { initProgressNav } from './js/progressNav.js?v=20261103r';
+import { initTilt } from './js/tilt.js?v=20261103r';
+import { initCounters } from './js/counters.js?v=20261103r';
+import { initTimeline } from './js/timeline.js?v=20261103r';
+import { initStackDrop } from './js/stackDrop.js?v=20261103r';
+import { initTheme } from './js/theme.js?v=20261103r';
+import { initReveals } from './js/reveals.js?v=20261103r';
+import { initContact } from './js/contact.js?v=20261103r';
 
 (() => {
 
@@ -81,6 +84,7 @@ if (env.gsap && env.ScrollTrigger) {
   if (!env.still) {
     initHero(document.querySelector('.hero'), env);
     initReveals(document, env);
+    initContact(document.getElementById('contact'), env);
     initTimeline(document.querySelector('.xp-grid'), env);
     initStackDrop(document.getElementById('stack'), env);
     initCounters([...document.querySelectorAll('[data-count]')], env);
