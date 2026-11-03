@@ -15,6 +15,7 @@ import { initCounters } from './js/counters.js';
 import { initTimeline } from './js/timeline.js';
 import { initStackDrop } from './js/stackDrop.js';
 import { initTheme } from './js/theme.js';
+import { initReveals } from './js/reveals.js';
 
 (() => {
 
@@ -79,6 +80,7 @@ if (env.gsap && env.ScrollTrigger) {
   initProgressNav(document, env, [['about', 'About'], ['works', 'Works'], ['experience', 'Experience'], ['leadership', 'Leadership'], ['stack', 'Stack'], ['contact', 'Contact']]);
   if (!env.still) {
     initHero(document.querySelector('.hero'), env);
+    initReveals(document, env);
     initTimeline(document.querySelector('.xp-grid'), env);
     initStackDrop(document.getElementById('stack'), env);
     initCounters([...document.querySelectorAll('[data-count]')], env);
