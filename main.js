@@ -8,17 +8,17 @@
 
 /* ?v= on every import busts browser caches on deploy; bump it together with
    the versions in index.html (one find-and-replace across the repo). */
-import { readEnv } from './js/env.js?v=20261103r';
-import { initHero } from './js/hero.js?v=20261103r';
-import { initCursor } from './js/cursor.js?v=20261103r';
-import { initProgressNav } from './js/progressNav.js?v=20261103r';
-import { initTilt } from './js/tilt.js?v=20261103r';
-import { initCounters } from './js/counters.js?v=20261103r';
-import { initTimeline } from './js/timeline.js?v=20261103r';
-import { initStackDrop } from './js/stackDrop.js?v=20261103r';
-import { initTheme } from './js/theme.js?v=20261103r';
-import { initReveals } from './js/reveals.js?v=20261103r';
-import { initContact } from './js/contact.js?v=20261103r';
+import { readEnv } from './js/env.js?v=20261103s';
+import { initHero } from './js/hero.js?v=20261103s';
+import { initCursor } from './js/cursor.js?v=20261103s';
+import { initProgressNav } from './js/progressNav.js?v=20261103s';
+import { initTilt } from './js/tilt.js?v=20261103s';
+import { initCounters } from './js/counters.js?v=20261103s';
+import { initTimeline } from './js/timeline.js?v=20261103s';
+import { initStackDrop } from './js/stackDrop.js?v=20261103s';
+import { initTheme } from './js/theme.js?v=20261103s';
+import { initReveals } from './js/reveals.js?v=20261103s';
+import { initContact } from './js/contact.js?v=20261103s';
 
 (() => {
 

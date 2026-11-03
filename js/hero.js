@@ -3,7 +3,7 @@
    2. pointer parallax: layers drift at different depths toward the cursor
    3. scroll: badge spins, portrait and type part ways as the hero leaves
    Returns a cleanup function. */
-import { splitChars } from './splitText.js?v=20261103r';
+import { splitChars } from './splitText.js?v=20261103s';
 
 export function initHero(root, { gsap, fine }) {
   if (!root) return () => {};
