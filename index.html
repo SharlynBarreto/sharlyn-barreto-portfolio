@@ -13,9 +13,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260928e">
+  <link rel="stylesheet" href="styles.css?v=20261103h">
+  <script>/* before paint: js flag + saved or system theme, so there is no flash */
+    (function (d) { d.classList.add('js'); var t; try { t = localStorage.getItem('theme'); } catch (e) {}
+      d.dataset.theme = t === 'light' ? 'light' : 'dark'; })(document.documentElement); /* dark by default; light only if chosen */</script>
 </head>
 <body>
+<button type="button" class="theme-toggle" aria-pressed="true" aria-label="Switch to light mode">
+  <svg viewBox="0 0 40 40" aria-hidden="true"><circle class="tt-sun" cx="20" cy="20" r="7"/><g class="tt-rays"><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/></g><circle class="tt-bite" cx="27" cy="14" r="7"/></svg>
+</button>
 <main id="top">
 
 
@@ -35,7 +41,7 @@
       <div class="h-type">
         <svg class="h-sprig" viewBox="0 0 48 32" aria-hidden="true"><path d="M24 30V8M24 22c-6-2-10-6-12-12 6 1 10 5 12 12zm0 0c6-2 10-6 12-12-6 1-10 5-12 12zm0-8c-4-2-7-6-8-11 5 1 7 5 8 11zm0 0c4-2 7-6 8-11-5 1-7 5-8 11zm0-6c-2-2-3-4-3-7 3 2 3 4 3 7zm0 0c2-2 3-4 3-7-3 2-3 4-3 7z"/></svg>
         <p class="label h-kicker">Software Engineer</p>
-        <h1 class="h-name">Sharlyn<span>Barreto</span></h1>
+        <h1 class="h-name">Sharlyn<span class="h-last">Barreto</span></h1>
         <p class="h-script">Building software<br><span>end to end</span></p>
         <p class="h-sub">from cloud infrastructure to interfaces people enjoy</p>
         <svg class="h-swash" viewBox="0 0 160 14" aria-hidden="true"><path d="M2 10C40 2 100 0 158 6"/></svg>
@@ -156,7 +162,7 @@
             <p class="file-label">Tech stack</p><ul class="file-stack"><li>TypeScript</li><li>CLIP</li><li>Next.js</li><li>React 19</li></ul>
             
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img"><img loading="lazy" src="assets/closet-labs.jpg" alt="Closet Labs: an outfit photo beside matched product results, styled as a retro Paint window"></div>
             <figcaption>outfit search</figcaption>
@@ -173,7 +179,7 @@
             <p class="file-label">Tech stack</p><ul class="file-stack"><li>TypeScript</li><li>Python</li><li>Agent hooks</li><li>LLM curation</li><li>Azure</li></ul>
             <a class="file-link" href="https://augenta.ai" target="_blank" rel="noopener">Visit augenta.ai <span aria-hidden="true">→</span></a>
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img"><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
@@ -271,7 +277,7 @@
             <p class="file-label">Tech stack</p><ul class="file-stack"><li>React</li><li>Tailwind CSS</li><li>Cloudflare</li><li>RapidAPI</li><li>JavaScript</li></ul>
             <a class="file-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img"><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
@@ -352,11 +358,11 @@
           <div class="file-copy">
             <p class="file-kicker">File 04</p>
             <h3 class="file-title">Polly AI</h3>
-            <p class="file-blurb">Real-time emotion and audio analysis running at 30+ frames per second, helping speakers see how they come across. Impact validated with data: users improved their scores by 56%.</p>
+            <p class="file-blurb">Real-time emotion and audio analysis running at <span data-count="30">30</span>+ frames per second, helping speakers see how they come across. Impact validated with data: users improved their scores by <span data-count="56">56</span>%.</p>
             <p class="file-label">Tech stack</p><ul class="file-stack"><li>React</li><li>Python</li><li>DeepFace</li><li>Google APIs</li><li>GCP</li></ul>
             <a class="file-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img"><span class="p-note pn-1" aria-hidden="true">&#9834;</span><span class="p-note pn-2" aria-hidden="true">&#9835;</span><span class="p-note pn-3" aria-hidden="true">&#9834;</span><svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 400">
               <defs>
@@ -435,7 +441,7 @@
             <p class="file-label">Tech stack</p><ul class="file-stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
             <a class="file-link" href="https://github.com/SharlynBarreto/Nail_Salon" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img"><img loading="lazy" src="assets/project1.jpg" alt="Nail salon booking website"></div>
             <figcaption>where it started</figcaption>
@@ -452,7 +458,7 @@
             
             <a class="file-link" href="https://github.com/SharlynBarreto" target="_blank" rel="noopener">Let’s see more <span aria-hidden="true">→</span></a>
           </div>
-          <figure class="polaroid">
+          <figure class="polaroid" data-tilt>
             <span class="clip" aria-hidden="true"></span>
             <div class="polaroid-img more-img"><span>Let’s see<br><em>more</em> →</span></div>
             
@@ -475,7 +481,7 @@
         </div>
         <div class="xp-item">
           <span class="when">Jan 2025</span>
-          <div><h3>Morgan Stanley <em>Software Engineer Intern</em></h3><p>Schema design for the Ansible Automation Platform and validation logic for change management, improving data accuracy by roughly 22%.</p></div>
+          <div><h3>Morgan Stanley <em>Software Engineer Intern</em></h3><p>Schema design for the Ansible Automation Platform and validation logic for change management, improving data accuracy by roughly <span data-count="22">22</span>%.</p></div>
         </div>
       </div>
     </div>
@@ -487,15 +493,15 @@
   <div class="wrap">
     <div class="rule-head"><span class="label">Beyond the code: Leadership experience</span></div>
     <div class="lead-grid">
-      <article class="frame">
+      <article class="frame" data-tilt>
         <div class="art"><img loading="lazy" src="assets/ColorStack.jpg" alt="ColorStack club members at Queens College"></div>
         <div class="cap"><span class="title">ColorStack · Queens College</span><span class="role">Founding Treasurer · Nov 2025 to May 2026</span></div>
       </article>
-      <article class="frame">
+      <article class="frame" data-tilt>
         <div class="art"><img loading="lazy" src="assets/ASCEND.jpg" alt="ASCEND club members at Queens College"></div>
         <div class="cap"><span class="title">ASCEND · Queens College</span><span class="role">Director of Marketing · Sep 2024 to May 2025</span></div>
       </article>
-      <article class="frame">
+      <article class="frame" data-tilt>
         <div class="art"><img loading="lazy" src="assets/ALPFA.jpg" alt="ALPFA members on an office visit"></div>
         <div class="cap"><span class="title">ALPFA · Queens College</span><span class="role">Event Coordinator · Sep 2025 to present</span></div>
       </article>
@@ -603,6 +609,9 @@
   </div>
 </footer>
 
-<script src="main.js?v=20260928e"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js" defer></script>
+<script type="module" src="main.js?v=20261103h"></script>
 </body>
 </html>

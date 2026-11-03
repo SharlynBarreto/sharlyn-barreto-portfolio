@@ -26,6 +26,7 @@ section { scroll-margin-top: 24px; }
   --accent-dark: #8E561F;
   --accent-night: #D4935C;
   --forest-mid: #2F6146;
+  --stripe: #E4DBCD;
   --sans: "Archivo", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -86,7 +87,7 @@ a { color: inherit; text-decoration: none; }
 .h-kicker { margin: 14px 0 0; color: var(--forest-mid); font-size: 0.78rem; letter-spacing: 0.34em; }
 .h-name { margin: 16px 0 0; font: 300 clamp(3.4rem, 8.6vw, 7.6rem)/0.9 var(--serif); font-variation-settings: "opsz" 144;
   text-transform: uppercase; letter-spacing: 0.01em; color: var(--accent); }
-.h-name span { display: block; margin-top: 18px; font: 400 clamp(1.2rem, 2.3vw, 1.9rem)/1 var(--serif); letter-spacing: 0.42em; margin-right: -0.42em; color: var(--ink); }
+.h-name .h-last { display: block; margin-top: 18px; font: 400 clamp(1.2rem, 2.3vw, 1.9rem)/1 var(--serif); letter-spacing: 0.42em; margin-right: -0.42em; color: var(--ink); }
 .h-script { margin: 34px 0 0; font: 400 clamp(2rem, 3.4vw, 2.9rem)/1.02 "Allura", var(--serif); color: var(--accent-dark); }
 .h-script span { display: inline-block; padding-left: 1.4em; }
 .h-sub { margin: 12px 0 0; color: var(--soft); font-size: 0.95rem; }
@@ -282,7 +283,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ================= ABOUT (cream band: arched portrait left, copy right) ================= */
 .about-band { position: relative; overflow: hidden; padding: 96px 0;
-  background: repeating-linear-gradient(90deg, var(--paper-2) 0 34px, #E4DBCD 34px 60px); }
+  background: repeating-linear-gradient(90deg, var(--paper-2) 0 34px, var(--stripe) 34px 60px); }
 .about-band::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.08; background-image: var(--grain); }
 .about-stage { position: relative; z-index: 1; display: grid; place-items: center; min-height: 560px; }
 /* notched cartouche: the SVG path is stretched to the box; non-scaling strokes keep
@@ -437,7 +438,105 @@ a { color: inherit; text-decoration: none; }
   .tiles { grid-template-columns: repeat(3, 1fr); }
   .xp-item { grid-template-columns: 1fr; gap: 6px; }
 }
+/* ---------- dark theme: deep forest night ----------
+   Only the cream "paper" bands change; forest bands and painted covers keep
+   their colors. Copper is lifted so it still glows on the dark ground. */
+:root[data-theme="dark"] {
+  --paper: #0E1D16; --paper-2: #13261D; --paper-sheen: rgba(212, 147, 92, 0.09); --stripe: #0F2018;
+  --ink: #E6EDE7; --soft: #A9BFB1; --line: rgba(236, 241, 236, 0.16);
+  --accent: #D4935C; --accent-dark: #E3A876; --forest-mid: #8FC2A3;
+  --night: #0A1510; --night-2: #07100C;
+  color-scheme: dark;
+}
+:root[data-theme="dark"] .h-shade { mix-blend-mode: screen; color: #8FC2A3; fill: #8FC2A3; opacity: 0.08; }
+:root[data-theme="dark"] .h-photo { filter: drop-shadow(-14px 20px 28px rgba(0, 0, 0, 0.5)); }
+
+/* theme toggle: sun with rays; in dark mode a "bite" slides over it (moon) */
+.theme-toggle { position: fixed; z-index: 95; top: 16px; right: 18px; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--line); background: color-mix(in srgb, var(--paper-2) 80%, transparent); backdrop-filter: blur(8px);
+  color: var(--accent); cursor: pointer; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); }
+.theme-toggle:hover { transform: scale(1.08); }
+.theme-toggle svg { width: 26px; height: 26px; overflow: visible; }
+.tt-sun { fill: currentColor; transition: r 0.5s var(--ease); }
+.tt-rays { stroke: currentColor; stroke-width: 2; stroke-linecap: round; transform-origin: 20px 20px; transition: transform 0.6s var(--ease), opacity 0.4s; }
+.tt-bite { fill: var(--paper-2); transform: translate(14px, -14px); transition: transform 0.6s var(--ease); }
+[data-theme="dark"] .tt-sun { r: 11px; }
+[data-theme="dark"] .tt-rays { transform: rotate(90deg) scale(0.4); opacity: 0; }
+[data-theme="dark"] .tt-bite { transform: translate(0, 0); }
+
+/* sunset wipe between themes: new theme grows as a circle from the toggle */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: theme-wipe 0.9s cubic-bezier(0.7, 0, 0.3, 1); }
+@keyframes theme-wipe { from { clip-path: circle(0 at var(--vt-x, 100%) var(--vt-y, 0)); } to { clip-path: circle(150vmax at var(--vt-x, 100%) var(--vt-y, 0)); } }
+
+/* ---------- motion layer (js/) ---------- */
+/* hero waits for its intro; the keyframe is a fallback if scripts never run */
+.js .hero .h-grid { visibility: hidden; animation: reveal 0s 2.5s forwards; }
+.js.motion-ready .hero .h-grid { visibility: visible; }
+@keyframes reveal { to { visibility: visible; } }
+.h-name .ch { display: inline-block; will-change: transform; }
+
+/* scroll progress + dot nav */
+.scroll-bar { position: fixed; z-index: 90; top: 0; left: 0; right: 0; height: 3px; background: var(--accent);
+  transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
+.dot-nav { position: fixed; z-index: 80; right: 22px; top: 50%; display: grid; gap: 14px; transform: translate(40px, -50%);
+  opacity: 0; pointer-events: none; transition: opacity 0.4s var(--ease), transform 0.5s var(--ease); }
+.dot-nav.show { opacity: 1; pointer-events: auto; transform: translate(0, -50%); }
+.dot-nav a { position: relative; display: block; width: 10px; height: 10px; border-radius: 50%;
+  border: 1.5px solid var(--accent-night); background: transparent; transition: transform 0.3s var(--ease), background 0.3s; }
+.dot-nav a.on { background: var(--accent-night); transform: scale(1.35); }
+.dot-nav a:hover { transform: scale(1.5); }
+.dot-nav span { position: absolute; right: 22px; top: 50%; translate: 8px -50%; padding: 5px 10px; border-radius: 99px;
+  background: var(--night-2); color: var(--night-ink); font: 600 0.6rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase;
+  white-space: nowrap; opacity: 0; transition: opacity 0.25s, translate 0.3s var(--ease); pointer-events: none; }
+.dot-nav a:hover span, .dot-nav a:focus-visible span, .dot-nav a.on span { opacity: 1; translate: 0 -50%; }
+.dot-nav a.on:not(:hover):not(:focus-visible) span { opacity: 0; }
+@media (max-width: 700px) { .dot-nav { display: none; } }
+
+/* custom cursor (mouse only; added by js/cursor.js) */
+.has-cursor, .has-cursor a, .has-cursor button, .has-cursor [role="tab"] { cursor: none; }
+.has-cursor input, .has-cursor textarea { cursor: text; }
+.cur-dot, .cur-ring { position: fixed; z-index: 100; top: 0; left: 0; pointer-events: none; border-radius: 50%; }
+.cur-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: var(--accent); }
+.cur-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1.5px solid var(--accent);
+  display: grid; place-items: center; transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease), background 0.3s, border-color 0.3s; }
+.cur-ring.is-hot { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(184, 115, 51, 0.25); }
+.cur-ring::after { content: attr(data-label); color: var(--paper-2); font: 600 0.58rem/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; }
+.cur-ring.is-down { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+.cur-out .cur-dot, .cur-out .cur-ring { opacity: 0; }
+
+/* tilt glare (js/tilt.js) */
+[data-tilt] { position: relative; will-change: transform; }
+[data-tilt] .art, [data-tilt] .polaroid-img { overflow: hidden; }
+.tilt-glare { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity 0.4s var(--ease);
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 240, 220, 0.38), transparent 55%); mix-blend-mode: soft-light; }
+.is-tilting .tilt-glare { opacity: 1; }
+
+/* stack drop (js/stackDrop.js): tiles are grabbable on mouse devices */
+.has-cursor .tiles li { touch-action: pan-y; }
+.tiles li .blob { transform-origin: 50% 100%; }
+.gsap-on .stack-panel.in .tiles li { animation: none; }
+
+/* counters keep their width steady while counting */
+[data-count] { display: inline-block; font-variant-numeric: tabular-nums; color: var(--accent-night); font-weight: 600; }
+.folder-body [data-count] { color: inherit; }
+
+/* experience timeline (js/timeline.js): line + a node per role */
+.xp-grid { position: relative; }
+.xp-line { position: absolute; left: 0; right: 0; top: -18px; height: 2px; background: linear-gradient(90deg, var(--accent-night), var(--accent));
+  transform-origin: 0 50%; pointer-events: none; }
+.xp-item { --node: 1; position: relative; }
+.xp-item::before { content: ""; position: absolute; left: 0; top: -24px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent-night); box-shadow: 0 0 0 5px rgba(212, 147, 92, 0.2); transform: scale(var(--node)); }
+@media (max-width: 600px) {
+  .xp-grid { padding-left: 26px; }
+  .xp-line { left: 6px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; transform-origin: 50% 0; }
+  .xp-item::before { left: -26px; top: 2px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .dot-nav, .dot-nav a, .dot-nav span { transition: none; }
+  .tt-sun, .tt-rays, .tt-bite { transition: none; }
   .folder, .folder-tab, .folder-body > * { transition: none; }
   .p-note { animation: none; }
   .stack-panel.in .tiles li { animation: none; }

@@ -2,7 +2,19 @@
    Two pieces need script: the Selected Works files (choosing a folder tab
    slides that project's folder to the front) and the Stack tabs (picking a
    category swaps the tile panel). Both work without JS: the first file sits
-   in front and every stack panel shows. */
+   in front and every stack panel shows.
+   Motion modules (js/) layer GSAP on top; they are skipped for reduced
+   motion or when GSAP fails to load, leaving the static page intact. */
+
+import { readEnv } from './js/env.js';
+import { initHero } from './js/hero.js';
+import { initCursor } from './js/cursor.js';
+import { initProgressNav } from './js/progressNav.js';
+import { initTilt } from './js/tilt.js';
+import { initCounters } from './js/counters.js';
+import { initTimeline } from './js/timeline.js';
+import { initStackDrop } from './js/stackDrop.js';
+import { initTheme } from './js/theme.js';
 
 (() => {
 
@@ -56,3 +68,24 @@
     });
     if (tabs.length) select(tabs.find((t) => t.getAttribute('aria-selected') === 'true') || tabs[0]);
   })();
+
+/* motion layer: GSAP-driven, gated on environment */
+const env = readEnv();
+const root = document.documentElement;
+initTheme(document.querySelector('.theme-toggle'), env); // works without GSAP too
+if (env.gsap && env.ScrollTrigger) {
+  env.gsap.registerPlugin(...[env.ScrollTrigger, env.Draggable].filter(Boolean));
+  root.classList.add('gsap-on'); // GSAP owns tile motion; CSS tile-in steps aside
+  initProgressNav(document, env, [['about', 'About'], ['works', 'Works'], ['experience', 'Experience'], ['leadership', 'Leadership'], ['stack', 'Stack'], ['contact', 'Contact']]);
+  if (!env.still) {
+    initHero(document.querySelector('.hero'), env);
+    initTimeline(document.querySelector('.xp-grid'), env);
+    initStackDrop(document.getElementById('stack'), env);
+    initCounters([...document.querySelectorAll('[data-count]')], env);
+    if (env.fine) {
+      initCursor(document, env);
+      initTilt([...document.querySelectorAll('[data-tilt]')], env);
+    }
+  }
+}
+root.classList.add('motion-ready'); // reveals the hero (see .js .h-grid in styles.css)
