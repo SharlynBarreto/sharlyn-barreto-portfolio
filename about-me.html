@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond the Code · Sharlyn Barreto</title>
+  <meta name="description" content="Places Sharlyn Barreto has traveled and the hobbies she loves off the keyboard: hiking, Muay Thai and weightlifting.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23173226'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23D4935C'%3ESB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+  <!-- shared tokens, fonts, theme toggle; page layout lives in about-me.css -->
+  <link rel="stylesheet" href="styles.css?v=20261104a">
+  <link rel="stylesheet" href="about-me.css?v=20261104d">
+  <script>/* same pre-paint theme flag as index.html */
+    (function (d) { d.classList.add('js'); var t; try { t = localStorage.getItem('theme'); } catch (e) {}
+      d.dataset.theme = t === 'light' ? 'light' : 'dark'; })(document.documentElement);</script>
+</head>
+<body class="beyond">
+<button type="button" class="theme-toggle" aria-pressed="true" aria-label="Switch to light mode">
+  <svg viewBox="0 0 40 40" aria-hidden="true"><circle class="tt-sun" cx="20" cy="20" r="7"/><g class="tt-rays"><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.7 8.7l2.8 2.8M28.5 28.5l2.8 2.8M8.7 31.3l2.8-2.8M28.5 11.5l2.8-2.8"/></g><circle class="tt-bite" cx="27" cy="14" r="7"/></svg>
+</button>
+
+<main class="wrap b-main">
+  <a class="label b-back" href="index.html#contact"><span aria-hidden="true">←</span> Back to home</a>
+
+  <header class="b-head">
+    <p class="label">Who am I further</p>
+    <h1>Beyond the <em>code</em></h1>
+    <p class="b-lede">When I'm not building, I'm usually on a plane, on a trail, or in the gym.</p>
+  </header>
+
+  <!-- TRAVEL: postcard grid. Each card: photo, postmark stamp, handwritten place. -->
+  <section class="b-section" aria-labelledby="travel-h">
+    <div class="rule-head"><span class="label">Places I've been</span></div>
+    <h2 class="b-h" id="travel-h">Postcards from <em>abroad</em></h2>
+    <ul class="postcards">
+      <li class="postcard"><img loading="lazy" src="assets/travel/japan.jpg" alt="A street in Japan"><p class="pc-stamp">JP</p><p class="pc-place">Japan</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/london.jpg" alt="A view of London"><p class="pc-stamp">UK</p><p class="pc-place">London</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/italy.jpg" alt="A view of Italy"><p class="pc-stamp">IT</p><p class="pc-place">Italy</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/ecuador.jpg" alt="A view of Ecuador"><p class="pc-stamp">EC</p><p class="pc-place">Ecuador</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/bermuda.jpg" alt="A view of Bermuda"><p class="pc-stamp">BM</p><p class="pc-place">Bermuda</p></li>
+    </ul>
+
+    <h2 class="b-h b-h-sub">Around the <em>States</em></h2>
+    <ul class="postcards">
+      <li class="postcard"><img loading="lazy" src="assets/travel/boston.jpg" alt="A view of Boston"><p class="pc-stamp">MA</p><p class="pc-place">Boston</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/cape-cod.jpg" alt="A view of Cape Cod"><p class="pc-stamp">MA</p><p class="pc-place">Cape Cod</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/vermont.jpg" alt="A view of Vermont"><p class="pc-stamp">VT</p><p class="pc-place">Vermont</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/las-vegas.jpg" alt="The Las Vegas Strip at night, with the Paris tower lit up over the Bellagio fountains"><p class="pc-stamp">NV</p><p class="pc-place">Las Vegas</p></li>
+      <li class="postcard"><img loading="lazy" src="assets/travel/philadelphia.jpg" alt="A view of Philadelphia"><p class="pc-stamp">PA</p><p class="pc-place">Philadelphia</p></li>
+    </ul>
+  </section>
+
+  <!-- HOBBIES: three illustrated cards (swap the svg for a photo later if wanted) -->
+  <section class="b-section" aria-labelledby="hobbies-h">
+    <div class="rule-head"><span class="label">Off the keyboard</span></div>
+    <h2 class="b-h" id="hobbies-h">What keeps me <em>moving</em></h2>
+    <ul class="hobbies">
+      <li class="hobby">
+        <figure class="hobby-frame"><img class="hobby-photo" loading="lazy" src="assets/hobbies/hiking.jpg" alt="Green mountain ridges above a sea of clouds at sunrise"></figure>
+        <span class="hobby-no">01</span>
+        <h3>Hiking</h3>
+        <p>Finding new trails and earning the view at the top.</p>
+      </li>
+      <li class="hobby">
+        <figure class="hobby-frame"><img class="hobby-photo" style="object-position: 50% 45%" loading="lazy" src="assets/hobbies/muay-thai.jpg" alt="A row of heavy bags hanging in a Muay Thai gym under hexagon ceiling lights"></figure>
+        <span class="hobby-no">02</span>
+        <h3>Muay Thai</h3>
+        <p>Pads, footwork and the discipline that comes with it.</p>
+      </li>
+      <li class="hobby">
+        <figure class="hobby-frame"><img class="hobby-photo" style="object-position: 50% 40%" loading="lazy" src="assets/hobbies/weightlifting.jpg" alt="Sharlyn taking a mirror selfie on the leg press at the gym"></figure>
+        <span class="hobby-no">03</span>
+        <h3>Weightlifting</h3>
+        <p>Steady progress, one rep at a time.</p>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<script type="module">
+  import { initTheme } from './js/theme.js?v=20261103s';
+  initTheme(document.querySelector('.theme-toggle'), { still: matchMedia('(prefers-reduced-motion: reduce)').matches });
+</script>
+</body>
+</html>

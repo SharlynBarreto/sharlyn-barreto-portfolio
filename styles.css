@@ -136,7 +136,8 @@ a { color: inherit; text-decoration: none; }
 .f-sage     { --fc: #9DB09C; --fi: #17211C; }
 .f-cream    { --fc: #E9DFCF; --fi: #17211C; }
 .f-copper   { --fc: #B87333; --fi: #1E140C; }
-.folder-tab { position: absolute; bottom: 100%; left: calc(3% + var(--n) * 15.4%); width: 15%; height: var(--tab);
+.f-forest   { --fc: #2F4A3A; --fi: #F3EDE3; }
+.folder-tab { position: absolute; bottom: 100%; left: calc(3% + var(--n) * 94% / var(--count)); width: calc(94% / var(--count) - 0.4%); height: var(--tab);
   display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 12px; border: 0; border-radius: 14px 14px 0 0;
   background: var(--fc); color: var(--fi); cursor: pointer; white-space: nowrap; overflow: visible;
   font: 600 0.66rem/1 var(--sans); letter-spacing: 0.2em; text-transform: uppercase; transition: font 0.3s, padding 0.3s; }

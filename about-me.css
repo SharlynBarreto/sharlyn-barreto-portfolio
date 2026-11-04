@@ -1,0 +1,63 @@
+/* "Beyond the code" page (about-me.html). Builds on the tokens in styles.css:
+   cream paper page, postcard grid for travel, three hobby cards. */
+body.beyond { background: var(--paper); color: var(--ink); }
+.b-main { padding: 40px 0 120px; }
+.b-back { display: inline-flex; gap: 8px; color: var(--accent-dark); text-decoration: none; }
+.b-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.b-head { margin: 72px 0 40px; max-width: 720px; }
+.b-head .label { color: var(--accent-dark); }
+.b-head h1 { margin: 14px 0 0; font: 300 clamp(3rem, 8vw, 6rem)/0.95 var(--serif); letter-spacing: -0.02em; }
+.b-head h1 em, .b-h em { font-style: italic; color: var(--accent); }
+.b-lede { margin: 22px 0 0; font-size: 1.1rem; line-height: 1.6; color: var(--soft); }
+
+.b-section { margin-top: 88px; }
+.b-section .rule-head { color: var(--soft); }
+.b-h { margin: 18px 0 30px; font: 300 clamp(2rem, 4.5vw, 3rem)/1.05 var(--serif); }
+.b-h-sub { margin-top: 64px; }
+
+/* postcards: white border, slight alternating tilt, straighten + lift on hover */
+.postcards { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.postcard { position: relative; margin: 0; padding: 10px 10px 46px; background: var(--paper-2);
+  border: 1px solid var(--line); box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.45);
+  rotate: -1.5deg; transition: rotate 0.4s var(--ease), translate 0.4s var(--ease); }
+.postcard:nth-child(even) { rotate: 1.5deg; }
+.postcard:hover { rotate: 0deg; translate: 0 -6px; }
+.postcard img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.pc-place { position: absolute; left: 14px; bottom: 8px; margin: 0; font: 400 1.7rem/1 "Allura", var(--serif); }
+/* postmark: dashed stamp with the country / state code */
+.pc-stamp { position: absolute; top: 18px; right: 18px; margin: 0; width: 46px; height: 46px;
+  display: grid; place-items: center; border-radius: 50%; border: 1.5px dashed var(--paper-2);
+  background: var(--accent); color: #FFF8EE; box-shadow: 0 0 0 3px var(--accent), 0 4px 10px rgba(0, 0, 0, 0.35); font: 600 0.72rem/1 var(--sans); letter-spacing: 0.12em;
+  rotate: 12deg; }
+
+/* hobbies: tall arched frames, echoing the arched portrait in the hero.
+   Portrait 3:4 fits the phone photos; a thin copper rule floats inside the arch. */
+.hobbies { list-style: none; margin: 0; padding: 0; display: grid; gap: 40px 32px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.hobby { text-align: center; }
+.hobby-frame { position: relative; margin: 0; padding: 10px; border-radius: 999px 999px 18px 18px;
+  background: var(--paper-2); border: 1px solid var(--line);
+  box-shadow: 0 24px 40px -26px rgba(0, 0, 0, 0.55);
+  transition: translate 0.5s var(--ease), box-shadow 0.5s var(--ease); }
+.hobby-frame::after { content: ""; position: absolute; inset: 20px; border-radius: inherit; pointer-events: none;
+  border: 1px solid color-mix(in srgb, var(--accent-night) 80%, transparent); }
+.hobby-photo { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 999px 999px 10px 10px;
+  transition: scale 0.8s var(--ease); }
+.hobby-frame { overflow: hidden; }
+.hobby:hover .hobby-frame { translate: 0 -8px; box-shadow: 0 34px 50px -28px rgba(0, 0, 0, 0.6); }
+.hobby:hover .hobby-photo { scale: 1.04; }
+.hobby-no { display: block; margin-top: 22px; font: 600 0.68rem/1 var(--sans); letter-spacing: 0.2em; color: var(--accent); }
+.hobby h3 { margin: 10px 0 8px; font: italic 400 1.9rem/1.1 var(--serif); }
+.hobby p { margin: 0 auto; max-width: 26ch; line-height: 1.55; color: var(--soft); }
+@media (prefers-reduced-motion: reduce) { .hobby-frame, .hobby-photo { transition: none; } }
+
+@media (max-width: 600px) {
+  .wrap.b-main { width: calc(100% - 32px); }
+  .b-head { margin-top: 48px; }
+  .postcards { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .pc-place { font-size: 1.35rem; }
+  .pc-stamp { width: 36px; height: 36px; font-size: 0.6rem; top: 14px; right: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .postcard { transition: none; } }
